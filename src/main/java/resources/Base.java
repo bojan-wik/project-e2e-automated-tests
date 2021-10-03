@@ -1,4 +1,4 @@
-package Academy;
+package resources;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -28,12 +28,12 @@ public class Base {
      */
     public WebDriver initializeDriver() throws IOException {
         Properties properties = new Properties();
-        FileInputStream propertiesFileInput = new FileInputStream("C:\\Users\\bojanoww\\IdeaProjects\\project-e2e-automated-tests\\src\\main\\java\\Academy\\browser_data.properties");
+        FileInputStream propertiesFileInput = new FileInputStream("C:\\Users\\Dell\\IdeaProjects\\project-e2e-automated-tests\\src\\main\\java\\resources\\browser_data.properties");
         properties.load(propertiesFileInput);
         String browser = properties.getProperty("browser");
         System.out.printf("I'm starting execution of a test case in a browser: %s\n", browser);
         if (browser.equals("chrome")) {
-            System.setProperty("webdriver.chrome.driver", "C:\\Tools\\Webdrivers\\Chrome\\93\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", "C:\\Tools\\Webdrivers\\Chrome\\94\\chromedriver.exe");
             driver = new ChromeDriver();
         } else if (browser.equals("firefox")) {
             System.setProperty("webdriver.gecko.driver", "C:\\Tools\\Webdrivers\\Firefox\\geckodriver-v0.26.0-win64\\geckodriver.exe");

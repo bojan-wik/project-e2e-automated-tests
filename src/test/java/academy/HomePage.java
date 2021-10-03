@@ -1,6 +1,7 @@
-package Academy;
+package academy;
 
 import org.testng.annotations.Test;
+import resources.Base;
 
 import java.io.IOException;
 
