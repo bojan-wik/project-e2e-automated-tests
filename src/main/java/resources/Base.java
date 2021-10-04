@@ -28,7 +28,7 @@ public class Base {
      */
     public WebDriver initializeDriver() throws IOException {
         Properties properties = new Properties();
-        FileInputStream propertiesFileInput = new FileInputStream("C:\\Users\\Dell\\IdeaProjects\\project-e2e-automated-tests\\src\\main\\java\\resources\\browser_data.properties");
+        FileInputStream propertiesFileInput = new FileInputStream("C:\\Users\\bojanoww\\IdeaProjects\\project-e2e-automated-tests\\src\\main\\java\\resources\\browser_data.properties");
         properties.load(propertiesFileInput);
         String browser = properties.getProperty("browser");
         System.out.printf("I'm starting execution of a test case in a browser: %s\n", browser);
