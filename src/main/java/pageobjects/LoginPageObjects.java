@@ -15,15 +15,15 @@ public class LoginPageObjects {
     By passwordFieldLocator = By.id("passwd");
     By signinButtonLocator = By.id("SubmitLogin");
 
-    public WebElement emailField() {
+    public WebElement getEmailField() {
         return driver.findElement(emailFieldLocator);
     }
 
-    public WebElement passwordField() {
+    public WebElement getPasswordField() {
         return driver.findElement(passwordFieldLocator);
     }
 
-    public WebElement signinButton() {
+    public WebElement getSigninButton() {
         return driver.findElement(signinButtonLocator);
     }
 }

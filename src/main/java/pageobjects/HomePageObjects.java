@@ -13,7 +13,7 @@ public class HomePageObjects {
 
     By loginButtonLocator = By.xpath("//a[@class='login']");
 
-    public WebElement loginButton() {
+    public WebElement getLoginButton() {
         return driver.findElement(loginButtonLocator);
     }
 }

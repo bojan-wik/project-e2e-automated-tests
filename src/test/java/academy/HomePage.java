@@ -29,11 +29,16 @@ public class HomePage extends Base {
          * do klasy z obiektami dla HomePage.
          */
         HomePageObjects homePageObjects = new HomePageObjects(driver);
-        homePageObjects.loginButton().click();
+        homePageObjects.getLoginButton().click();
         LoginPageObjects loginPageObjects = new LoginPageObjects(driver);
-        loginPageObjects.emailField().sendKeys("wiktor.bojanowski@contractors.roche.com");
-        loginPageObjects.passwordField().sendKeys("testpass");
-        loginPageObjects.signinButton().click();
+        loginPageObjects.getEmailField().sendKeys("test@test.com");
+        loginPageObjects.getPasswordField().sendKeys("test");
+        loginPageObjects.getSigninButton().click();
         //driver.quit();
+        /**
+         * TO-DO:
+         *  albo wynieść url, email i password do zewn. pliku - wtedy potem dodać ten plik do .gitignore i ew. w przyszłości jakąś enkrypcję,
+         *  albo w kursie jest wspomniany TestNG DataProviders - są o tym lekcie, których jeszcze nie obejrzałem
+         */
     }
 }
