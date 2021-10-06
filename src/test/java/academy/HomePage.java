@@ -1,5 +1,6 @@
 package academy;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pageobjects.HomePageObjects;
 import pageobjects.LoginPageObjects;
@@ -13,6 +14,22 @@ import java.io.IOException;
  */
 public class HomePage extends Base {
 
+    /**
+     * Analogicznie jak to robiłem w lekcji 'y_DataProviderAnnotation' tworzę funkcję, która zwróci mi zestaw email & password i otaguję ją adnotacją @DataProvider.
+     * Dzięki temu parametryzuję moje test casy i będę mógł w przyszłości uruchamiać je z różnymi zestawami danych
+     */
+    @DataProvider
+    public Object[][] getEmailAndPassword() {
+        Object[][] dataSetArray = new Object[2][2];
+        // data set 1
+        dataSetArray[0][0] = "user1@test.com";
+        dataSetArray[0][1] = "password1";
+        // data set 2
+        dataSetArray[1][0] = "user2@test.com";
+        dataSetArray[1][1] = "password2";
+        return dataSetArray;
+    }
+
     @Test
     public void openHomePage() throws IOException {
         driver = initializeDriver();
@@ -20,8 +37,8 @@ public class HomePage extends Base {
         driver.quit();
     }
 
-    @Test
-    public void login() throws IOException {
+    @Test(dataProvider = "getEmailAndPassword")
+    public void login(String email, String password) throws IOException {
         driver = initializeDriver();
         driver.get("http://automationpractice.com/index.php");
         /**
@@ -31,14 +48,15 @@ public class HomePage extends Base {
         HomePageObjects homePageObjects = new HomePageObjects(driver);
         homePageObjects.getLoginButton().click();
         LoginPageObjects loginPageObjects = new LoginPageObjects(driver);
-        loginPageObjects.getEmailField().sendKeys("test@test.com");
-        loginPageObjects.getPasswordField().sendKeys("test");
+        loginPageObjects.getEmailField().sendKeys(email);
+        loginPageObjects.getPasswordField().sendKeys(password);
         loginPageObjects.getSigninButton().click();
         //driver.quit();
         /**
          * TO-DO:
          *  albo wynieść url, email i password do zewn. pliku - wtedy potem dodać ten plik do .gitignore i ew. w przyszłości jakąś enkrypcję,
-         *  albo w kursie jest wspomniany TestNG DataProviders - są o tym lekcie, których jeszcze nie obejrzałem
+         *  albo w kursie jest wspomniany TestNG DataProviders - są o tym lekcje, których jeszcze nie obejrzałem - przerobione,
+         *  ale wrażliwe dane są cały czas w skrypcie, więc to nie rozwiązuje głównego problemu
          */
     }
 }
