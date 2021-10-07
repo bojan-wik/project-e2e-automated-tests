@@ -1,6 +1,8 @@
 package academy;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pageobjects.HomePageObjects;
@@ -14,6 +16,17 @@ import java.io.IOException;
  * metod klasy 'Base'
  */
 public class HomePage extends Base {
+
+    /**
+     * TO-DO: @BeforeTest uruchamia się na początku danego test folderu, ale tylko raz, co znaczy, że strona z URLem otwierana jest tylko raz,
+     * co z kolei prowadzi do tego, że skrypt wywala mi się na testcase 'openHomePage()' - zinwestygować
+     */
+    /*@BeforeTest
+    public void setUpTests() throws IOException {
+        System.out.println("set up tests");
+        driver = initializeDriver();
+        driver.get(properties.getProperty("url"));
+    }*/
 
     /**
      * Analogicznie jak to robiłem w lekcji 'y_DataProviderAnnotation' tworzę funkcję, która zwróci mi zestaw email & password i otaguję ją adnotacją @DataProvider.
@@ -64,7 +77,7 @@ public class HomePage extends Base {
         loginPageObjects.getEmailField().sendKeys(email);
         loginPageObjects.getPasswordField().sendKeys(password);
         loginPageObjects.getSigninButton().click();
-        //driver.quit();
+        driver.quit();
         /**
          * TO-DO:
          *  1-a: albo wynieść url, email i password do zewn. pliku - wtedy potem dodać ten plik do .gitignore i ew. w przyszłości jakąś enkrypcję,
@@ -73,4 +86,10 @@ public class HomePage extends Base {
          *  2: wynieść URL do parametru globalnego (np. na poziom test suite), jak już stworzę plik testng.xml
          */
     }
+
+    /*@AfterTest
+    public void tearDownTests() {
+        System.out.println("tear down tests");
+        driver.close();
+    }*/
 }
