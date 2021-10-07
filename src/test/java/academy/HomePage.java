@@ -34,7 +34,14 @@ public class HomePage extends Base {
     @Test
     public void openHomePage() throws IOException {
         driver = initializeDriver();
-        driver.get("http://automationpractice.com/index.php");
+        //driver.get("http://automationpractice.com/index.php");
+        /**
+         * Jako, że adres URL dla każdego testcase jest taki sam - wynoszę go, jako parametr ('url') do pliku .properties,
+         * Wcześniej zmienną 'properties' wyniosłem w klasie 'Base' na poziom global, teraz mam tutaj do niej dostęp,
+         * wcześniej wywołana metoda 'initializeDriver()' zasila także zmienną 'properties', dzięki czemu teraz mogę od razu
+         * wywołać metodę 'getProperty()' i bezp. zczytać wyniesiony wcześniej parametr 'url'
+         */
+        driver.get(properties.getProperty("url"));
         HomePageObjects homePageObjects = new HomePageObjects(driver);
         String expectedPageTitle = "Automation Practice Website";
         String actualPageTitle = homePageObjects.getPageTitle().getText();
@@ -46,9 +53,9 @@ public class HomePage extends Base {
     @Test(dataProvider = "getEmailAndPassword")
     public void login(String email, String password) throws IOException {
         driver = initializeDriver();
-        driver.get("http://automationpractice.com/index.php");
+        driver.get(properties.getProperty("url"));
         /**
-         * Tworzę obiekt klasy 'HomePageObjects', jako argument podaję driver i tym samym przekazuję wiedzę o wcześniej zainicjalizowanym driverze
+         * Tworzę obiekt klasy 'HomePageObjects', jako argument podaję driver i tym samym przekazuję wiedzę o wcześniej utworzonym i zasilonym driverze
          * do klasy z obiektami dla HomePage.
          */
         HomePageObjects homePageObjects = new HomePageObjects(driver);
