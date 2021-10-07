@@ -12,8 +12,12 @@ public class HomePageObjects {
     }
 
     By loginButtonLocator = By.xpath("//a[@class='login']");
+    By sliderLocator = By.id("slider_row");
+    By pageTitleLocator = By.xpath("//div[@id='editorial_block_center']/h1");
 
     public WebElement getLoginButton() {
         return driver.findElement(loginButtonLocator);
     }
+    public WebElement getSlider() { return driver.findElement(sliderLocator); }
+    public WebElement getPageTitle() { return driver.findElement(pageTitleLocator); }
 }

@@ -1,5 +1,6 @@
 package academy;
 
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pageobjects.HomePageObjects;
@@ -34,6 +35,11 @@ public class HomePage extends Base {
     public void openHomePage() throws IOException {
         driver = initializeDriver();
         driver.get("http://automationpractice.com/index.php");
+        HomePageObjects homePageObjects = new HomePageObjects(driver);
+        String expectedPageTitle = "Automation Practice Website";
+        String actualPageTitle = homePageObjects.getPageTitle().getText();
+        Assert.assertEquals(actualPageTitle, expectedPageTitle);
+        Assert.assertTrue(homePageObjects.getSlider().isDisplayed());
         driver.quit();
     }
 
@@ -54,9 +60,10 @@ public class HomePage extends Base {
         //driver.quit();
         /**
          * TO-DO:
-         *  albo wynieść url, email i password do zewn. pliku - wtedy potem dodać ten plik do .gitignore i ew. w przyszłości jakąś enkrypcję,
-         *  albo w kursie jest wspomniany TestNG DataProviders - są o tym lekcje, których jeszcze nie obejrzałem - przerobione,
-         *  ale wrażliwe dane są cały czas w skrypcie, więc to nie rozwiązuje głównego problemu
+         *  1-a: albo wynieść url, email i password do zewn. pliku - wtedy potem dodać ten plik do .gitignore i ew. w przyszłości jakąś enkrypcję,
+         *  1-b: albo w kursie jest wspomniany TestNG DataProviders - są o tym lekcje, których jeszcze nie obejrzałem - przerobione,
+         *      ale wrażliwe dane są cały czas w skrypcie, więc to nie rozwiązuje głównego problemu
+         *  2: wynieść URL do parametru globalnego (np. na poziom test suite), jak już stworzę plik testng.xml
          */
     }
 }
