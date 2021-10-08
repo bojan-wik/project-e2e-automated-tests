@@ -3,9 +3,9 @@ package resources;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.apache.commons.lang3.RandomStringUtils;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -48,6 +48,11 @@ public class Base {
          * Na koniec zwracam przygotowany obiekt 'driver', który będzie używany przez każdy test case
          */
         return driver;
+    }
+
+    public String generateRandomString() {
+        String generatedString = RandomStringUtils.randomAlphabetic(8);
+        return(generatedString);
     }
 }
 

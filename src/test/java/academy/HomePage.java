@@ -18,7 +18,7 @@ public class HomePage extends Base {
      * @BeforeMethod It will call Every time before Test Method.
      */
     @BeforeTest
-    public void setUpTest() throws IOException {
+    public void setUpTests() throws IOException {
         System.out.println("set up tests");
         driver = initializeDriver();
         driver.get(properties.getProperty("url"));
@@ -27,7 +27,7 @@ public class HomePage extends Base {
     @Test
     public void openHomePage() {
         /**
-         * Kroki inicjalizowania drivera, wywoływania url i zamykania drivera powtarzają się w każdym test case - z tego powodu wynoszę je
+         * Kroki inicjalizowania drivera, otwierania URLa i zamykania drivera powtarzają się w każdym test case - z tego powodu wynoszę je
          * do metod setUpTest() i tearDownTest() żeby ich nie powtarzać co testcase
          */
         //driver = initializeDriver();
@@ -47,11 +47,32 @@ public class HomePage extends Base {
         //driver.quit();
     }
 
+    @Test
+    public void subscribeToNewsletterWithInvalidEmail() {
+        HomePageObjects homePageObjects = new HomePageObjects(driver);
+        String invalidEmail = generateRandomString();
+        homePageObjects.getNewsletterEmailField().sendKeys(invalidEmail);
+        homePageObjects.getNewsletterSubmitButton().click();
+        String expectedInvalidEmailAlert = "invalid email address";
+        String actualInvalidEmailAlert = homePageObjects.getInvalidEmailAlert().getText();
+        /**
+         * Sprawdzam jedynie, czy fraza "invalid email address" jest obecna. W przyszłości cały komunikat alertu może się zmieniać
+         * np. coś może być z małej litery, coś z dużej, zamiast dwukropka myślnik, albo gdzieś dodana spacja, dlatego myślę,
+         * że nie ma sensu sprawdzać, czy cały komunikat jest dokładnie taki sam - dzięki temu test jest bardziej generyczny i odporny na drobne zmiany.
+         */
+        Assert.assertTrue(actualInvalidEmailAlert.toLowerCase().contains(expectedInvalidEmailAlert));
+    }
+
+    /*public void subscribeToNewsletterWithValidNewEmail() {
+        HomePageObjects homePageObjects = new HomePageObjects(driver);
+
+    }*/
+
     @AfterTest
-    public void tearDownTest() {
+    public void tearDownTests() {
         System.out.println("tear down tests");
-        if (driver != null) {
+        /*if (driver != null) {
             driver.quit();
-        }
+        }*/
     }
 }
