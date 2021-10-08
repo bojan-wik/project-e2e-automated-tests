@@ -48,6 +48,17 @@ public class HomePage extends Base {
     }
 
     @Test
+    public void subscribeToNewsletterWithValidNewEmail() throws IOException {
+        HomePageObjects homePageObjects = new HomePageObjects(driver);
+        String validEmail = generateRandomString() + "@test.com";
+        homePageObjects.getNewsletterEmailField().sendKeys(validEmail);
+        homePageObjects.getNewsletterSubmitButton().click();
+        String expectedValidNewEmailAlert = "successfully subscribed";
+        String actualValidNewEmailAlert = homePageObjects.getValidNewEmailAlert().getText();
+        Assert.assertTrue(actualValidNewEmailAlert.toLowerCase().contains(expectedValidNewEmailAlert));
+    }
+
+    @Test
     public void subscribeToNewsletterWithInvalidEmail() {
         HomePageObjects homePageObjects = new HomePageObjects(driver);
         String invalidEmail = generateRandomString();
@@ -63,16 +74,11 @@ public class HomePage extends Base {
         Assert.assertTrue(actualInvalidEmailAlert.toLowerCase().contains(expectedInvalidEmailAlert));
     }
 
-    /*public void subscribeToNewsletterWithValidNewEmail() {
-        HomePageObjects homePageObjects = new HomePageObjects(driver);
-
-    }*/
-
     @AfterTest
     public void tearDownTests() {
         System.out.println("tear down tests");
-        /*if (driver != null) {
+        if (driver != null) {
             driver.quit();
-        }*/
+        }
     }
 }
