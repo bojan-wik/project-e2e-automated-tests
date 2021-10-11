@@ -12,8 +12,18 @@ public class ContactPageObjects {
     }
 
     By contactNavigationLocator = By.xpath("//span[@class='navigation_page']");
+    By messageSubjectHeadingDropdownLocator = By.id("id_contact");
+    By messageEmailFieldLocator = By.id("email");
 
     public WebElement getContactNavigation() {
         return driver.findElement(contactNavigationLocator);
+    }
+
+    public WebElement getMessageSubjectHeadingDropdown() {
+        return driver.findElement(messageSubjectHeadingDropdownLocator);
+    }
+
+    public WebElement getMessageEmailField() {
+        return driver.findElement(messageEmailFieldLocator);
     }
 }
