@@ -11,6 +11,7 @@ public class HomePageObjects {
         this.driver = driver;
     }
 
+    By contactButtonLocator = By.id("contact-link");
     By loginButtonLocator = By.xpath("//a[@class='login']");
     By sliderLocator = By.id("slider_row");
     By pageTitleLocator = By.xpath("//div[@id='editorial_block_center']/h1");
@@ -19,6 +20,7 @@ public class HomePageObjects {
     By invalidEmailAlertLocator = By.className("alert-danger");
     By validNewEmailAlertLocator = By.className("alert-success");
 
+    public WebElement getContactButton() { return driver.findElement(contactButtonLocator); }
     public WebElement getLoginButton() {
         return driver.findElement(loginButtonLocator);
     }
