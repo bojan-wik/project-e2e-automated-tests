@@ -47,33 +47,6 @@ public class HomePage extends Base {
         //driver.quit();
     }
 
-    @Test
-    public void subscribeToNewsletterWithValidNewEmail() throws IOException {
-        HomePageObjects homePageObjects = new HomePageObjects(driver);
-        String validEmail = generateRandomString() + "@test.com";
-        homePageObjects.getNewsletterEmailField().sendKeys(validEmail);
-        homePageObjects.getNewsletterSubmitButton().click();
-        String expectedValidNewEmailAlert = "successfully subscribed";
-        String actualValidNewEmailAlert = homePageObjects.getValidNewEmailAlert().getText();
-        Assert.assertTrue(actualValidNewEmailAlert.toLowerCase().contains(expectedValidNewEmailAlert));
-    }
-
-    @Test
-    public void subscribeToNewsletterWithInvalidEmail() {
-        HomePageObjects homePageObjects = new HomePageObjects(driver);
-        String invalidEmail = generateRandomString();
-        homePageObjects.getNewsletterEmailField().sendKeys(invalidEmail);
-        homePageObjects.getNewsletterSubmitButton().click();
-        String expectedInvalidEmailAlert = "invalid email address";
-        String actualInvalidEmailAlert = homePageObjects.getInvalidEmailAlert().getText();
-        /**
-         * Sprawdzam jedynie, czy fraza "invalid email address" jest obecna. W przyszłości cały komunikat alertu może się zmieniać
-         * np. coś może być z małej litery, coś z dużej, zamiast dwukropka myślnik, albo gdzieś dodana spacja, dlatego myślę,
-         * że nie ma sensu sprawdzać, czy cały komunikat jest dokładnie taki sam - dzięki temu test jest bardziej generyczny i odporny na drobne zmiany.
-         */
-        Assert.assertTrue(actualInvalidEmailAlert.toLowerCase().contains(expectedInvalidEmailAlert));
-    }
-
     @AfterTest
     public void tearDownTests() {
         System.out.println("tear down tests");

@@ -15,19 +15,9 @@ public class HomePageObjects {
     By loginButtonLocator = By.xpath("//a[@class='login']");
     By sliderLocator = By.id("slider_row");
     By pageTitleLocator = By.xpath("//div[@id='editorial_block_center']/h1");
-    By newsletterEmailFieldLocator = By.id("newsletter-input");
-    By newsletterSubmitButtonLocator = By.xpath("//button[@name='submitNewsletter']");
-    By invalidEmailAlertLocator = By.className("alert-danger");
-    By validNewEmailAlertLocator = By.className("alert-success");
 
     public WebElement getContactButton() { return driver.findElement(contactButtonLocator); }
-    public WebElement getLoginButton() {
-        return driver.findElement(loginButtonLocator);
-    }
+    public WebElement getLoginButton() { return driver.findElement(loginButtonLocator); }
     public WebElement getSlider() { return driver.findElement(sliderLocator); }
     public WebElement getPageTitle() { return driver.findElement(pageTitleLocator); }
-    public WebElement getNewsletterEmailField() { return driver.findElement(newsletterEmailFieldLocator); }
-    public WebElement getNewsletterSubmitButton() { return driver.findElement(newsletterSubmitButtonLocator); }
-    public WebElement getInvalidEmailAlert() { return driver.findElement(invalidEmailAlertLocator); }
-    public WebElement getValidNewEmailAlert() { return driver.findElement(validNewEmailAlertLocator); }
 }
