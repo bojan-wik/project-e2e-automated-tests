@@ -42,7 +42,7 @@ public class Base {
             System.setProperty("webdriver.gecko.driver", "C:\\Tools\\Webdrivers\\Firefox\\geckodriver-v0.26.0-win64\\geckodriver.exe");
             driver = new FirefoxDriver();
         }
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         /**

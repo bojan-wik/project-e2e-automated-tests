@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="7" passed="7" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2021-10-12T13:11:01 CEST" name="Test Suite 1" finished-at="2021-10-12T13:11:49 CEST" duration-ms="47591">
+    <groups>
+    </groups>
+    <test started-at="2021-10-12T13:11:01 CEST" name="Test Folder 1" finished-at="2021-10-12T13:11:49 CEST" duration-ms="47591">
+      <class name="academy.LoginPage">
+        <test-method is-config="true" signature="setUpTest()[pri:0, instance:academy.LoginPage@378542de]" started-at="2021-10-12T13:11:22 CEST" name="setUpTest" finished-at="2021-10-12T13:11:28 CEST" duration-ms="5867" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpTest -->
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:academy.LoginPage@378542de]" started-at="2021-10-12T13:11:34 CEST" name="login" data-provider="getEmailAndPassword" finished-at="2021-10-12T13:11:39 CEST" duration-ms="4920" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[user1@test.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[password1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:academy.LoginPage@378542de]" started-at="2021-10-12T13:11:39 CEST" name="login" data-provider="getEmailAndPassword" finished-at="2021-10-12T13:11:42 CEST" duration-ms="3676" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[user2@test.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[password2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method is-config="true" signature="tearDownTest()[pri:0, instance:academy.LoginPage@378542de]" started-at="2021-10-12T13:11:48 CEST" name="tearDownTest" finished-at="2021-10-12T13:11:49 CEST" duration-ms="662" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownTest -->
+      </class> <!-- academy.LoginPage -->
+      <class name="academy.HomePage">
+        <test-method is-config="true" signature="setUpTests()[pri:0, instance:academy.HomePage@346d61be]" started-at="2021-10-12T13:11:17 CEST" name="setUpTests" finished-at="2021-10-12T13:11:22 CEST" duration-ms="4966" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpTests -->
+        <test-method signature="openHomePage()[pri:0, instance:academy.HomePage@346d61be]" started-at="2021-10-12T13:11:28 CEST" name="openHomePage" finished-at="2021-10-12T13:11:28 CEST" duration-ms="145" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openHomePage -->
+        <test-method signature="subscribeToNewsletterWithInvalidEmail()[pri:0, instance:academy.HomePage@346d61be]" started-at="2021-10-12T13:11:28 CEST" name="subscribeToNewsletterWithInvalidEmail" finished-at="2021-10-12T13:11:30 CEST" duration-ms="2641" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- subscribeToNewsletterWithInvalidEmail -->
+        <test-method signature="subscribeToNewsletterWithValidNewEmail()[pri:0, instance:academy.HomePage@346d61be]" started-at="2021-10-12T13:11:30 CEST" name="subscribeToNewsletterWithValidNewEmail" finished-at="2021-10-12T13:11:34 CEST" duration-ms="3409" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- subscribeToNewsletterWithValidNewEmail -->
+        <test-method is-config="true" signature="tearDownTests()[pri:0, instance:academy.HomePage@346d61be]" started-at="2021-10-12T13:11:48 CEST" name="tearDownTests" finished-at="2021-10-12T13:11:48 CEST" duration-ms="643" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownTests -->
+      </class> <!-- academy.HomePage -->
+      <class name="academy.ContactPage">
+        <test-method is-config="true" signature="setUpTests()[pri:0, instance:academy.ContactPage@3738449f]" started-at="2021-10-12T13:11:01 CEST" name="setUpTests" finished-at="2021-10-12T13:11:17 CEST" duration-ms="15386" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpTests -->
+        <test-method signature="openContactPage()[pri:0, instance:academy.ContactPage@3738449f]" started-at="2021-10-12T13:11:42 CEST" name="openContactPage" finished-at="2021-10-12T13:11:44 CEST" duration-ms="1606" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openContactPage -->
+        <test-method signature="sendValidMessageWithoutFile()[pri:0, instance:academy.ContactPage@3738449f]" started-at="2021-10-12T13:11:44 CEST" name="sendValidMessageWithoutFile" finished-at="2021-10-12T13:11:47 CEST" duration-ms="2973" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sendValidMessageWithoutFile -->
+        <test-method is-config="true" signature="tearDownTests()[pri:0, instance:academy.ContactPage@3738449f]" started-at="2021-10-12T13:11:47 CEST" name="tearDownTests" finished-at="2021-10-12T13:11:48 CEST" duration-ms="659" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownTests -->
+      </class> <!-- academy.ContactPage -->
+    </test> <!-- Test Folder 1 -->
+  </suite> <!-- Test Suite 1 -->
+</testng-results>
