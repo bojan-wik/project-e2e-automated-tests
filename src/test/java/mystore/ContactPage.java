@@ -1,4 +1,4 @@
-package academy;
+package mystore;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
@@ -6,9 +6,9 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pageobjects.ContactPageObjects;
-import pageobjects.HomePageObjects;
-import resources.Base;
+import mystore.pageobjects.ContactPageObjects;
+import mystore.pageobjects.HomePageObjects;
+import mystore.resources.Base;
 
 import java.io.IOException;
 

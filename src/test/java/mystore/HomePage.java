@@ -1,9 +1,9 @@
-package academy;
+package mystore;
 
 import org.testng.Assert;
 import org.testng.annotations.*;
-import pageobjects.HomePageObjects;
-import resources.Base;
+import mystore.pageobjects.HomePageObjects;
+import mystore.resources.Base;
 
 import java.io.IOException;
 

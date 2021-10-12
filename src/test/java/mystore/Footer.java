@@ -1,11 +1,11 @@
-package academy;
+package mystore;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pageobjects.FooterObjects;
-import resources.Base;
+import mystore.pageobjects.FooterObjects;
+import mystore.resources.Base;
 
 import java.io.IOException;
 

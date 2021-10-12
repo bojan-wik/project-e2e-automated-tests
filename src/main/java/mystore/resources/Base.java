@@ -1,4 +1,4 @@
-package resources;
+package mystore.resources;
 
 import org.apache.commons.lang3.RandomUtils;
 import org.openqa.selenium.WebDriver;
@@ -31,7 +31,7 @@ public class Base {
      */
     public WebDriver initializeDriver() throws IOException {
         properties = new Properties();
-        FileInputStream propertiesFileInput = new FileInputStream("C:\\Users\\bojanoww\\IdeaProjects\\project-e2e-automated-tests\\src\\main\\java\\resources\\data.properties");
+        FileInputStream propertiesFileInput = new FileInputStream("C:\\Users\\bojanoww\\IdeaProjects\\project-e2e-automated-tests\\src\\main\\java\\mystore\\resources\\data.properties");
         properties.load(propertiesFileInput);
         String browser = properties.getProperty("browser");
         System.out.printf("I'm starting execution of a test case in a browser: %s\n", browser);

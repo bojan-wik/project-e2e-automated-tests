@@ -1,9 +1,9 @@
-package academy;
+package mystore;
 
 import org.testng.annotations.*;
-import pageobjects.HomePageObjects;
-import pageobjects.LoginPageObjects;
-import resources.Base;
+import mystore.pageobjects.HomePageObjects;
+import mystore.pageobjects.LoginPageObjects;
+import mystore.resources.Base;
 
 import java.io.IOException;
 
