@@ -1,5 +1,6 @@
 package resources;
 
+import org.apache.commons.lang3.RandomUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -52,7 +53,12 @@ public class Base {
 
     public String generateRandomString() {
         String generatedString = RandomStringUtils.randomAlphabetic(8);
-        return(generatedString);
+        return generatedString;
+    }
+
+    public int generateRandomInt() {
+        int randomInt = RandomUtils.nextInt(1, 10000);
+        return randomInt;
     }
 }
 

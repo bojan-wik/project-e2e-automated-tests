@@ -5,6 +5,7 @@
          <classes>
              <class name="academy.HomePage"/>
              <class name="academy.LoginPage"/>
+             <class name="academy.ContactPage"/>
           </classes>
      </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -1,5 +1,7 @@
 package academy;
 
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -30,20 +32,25 @@ public class ContactPage extends Base {
     }
 
     @Test
-    public void sendMessage() {
+    public void sendValidMessageWithoutFile() {
         ContactPageObjects contactPageObjects = new ContactPageObjects(driver);
-        contactPageObjects.getMessageSubjectHeadingDropdown().click();
-        /**
-         * TO-DO:
-         * dodać key chain po kliknięciu - arrow down + enter
-         */
+        Actions actions = new Actions(driver);
+        actions.moveToElement(contactPageObjects.getSubjectHeadingDropdown()).click()
+                .sendKeys(Keys.ARROW_DOWN, Keys.ENTER).build().perform();
+        contactPageObjects.getEmailField().sendKeys(generateRandomString() + "@test.com");
+        contactPageObjects.getOrderRefField().sendKeys(Integer.toString(generateRandomInt()));
+        contactPageObjects.getMessageField().sendKeys("test message");
+        contactPageObjects.getSendButton().click();
+        Assert.assertTrue(contactPageObjects.getMessageSentAlert().isDisplayed());
+        String actualMessageSentAlert = contactPageObjects.getMessageSentAlert().getText();
+        Assert.assertTrue(actualMessageSentAlert.toLowerCase().contains("successfully sent"));
     }
 
     @AfterTest
     public void tearDownTests() {
         System.out.println("tear down tests");
-        /*if (driver != null) {
+        if (driver != null) {
             driver.quit();
-        }*/
+        }
     }
 }
