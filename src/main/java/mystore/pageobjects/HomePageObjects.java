@@ -4,19 +4,22 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class HomePageObjects {
+public class HomePageObjects extends BasePageObjects {
 
-    WebDriver driver;
-    public HomePageObjects(WebDriver driver) {
+    //WebDriver driver;
+    /*public HomePageObjects(WebDriver driver) {
         this.driver = driver;
+    }*/
+    public HomePageObjects(WebDriver driver) {
+        super(driver);
     }
 
-    By contactButtonLocator = By.id("contact-link");
+    //By contactButtonLocator = By.id("contact-link");
     By loginButtonLocator = By.xpath("//a[@class='login']");
     By sliderLocator = By.id("slider_row");
     By pageTitleLocator = By.xpath("//div[@id='editorial_block_center']/h1");
 
-    public WebElement getContactButton() { return driver.findElement(contactButtonLocator); }
+    //public WebElement getContactButton() { return driver.findElement(contactButtonLocator); }
 
     /*public WebElement getLoginButton() {
         return driver.findElement(loginButtonLocator);
