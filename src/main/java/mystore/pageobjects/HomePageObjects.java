@@ -17,7 +17,21 @@ public class HomePageObjects {
     By pageTitleLocator = By.xpath("//div[@id='editorial_block_center']/h1");
 
     public WebElement getContactButton() { return driver.findElement(contactButtonLocator); }
-    public WebElement getLoginButton() { return driver.findElement(loginButtonLocator); }
+
+    /*public WebElement getLoginButton() {
+        return driver.findElement(loginButtonLocator);
+    }*/
+    /**
+     * Poprzednia metoda (getLoginButton()) zwracała tylko WebElement login buttona. Potem w testcase wykonywałem na tym webelemencie click
+     * i zawsze po tym następowało przejście do strony logowania i musiałem tworzyć obiekt klasy LoginPageObjects.
+     * Teraz ten cały proces mam zawarty w metodzie clickLoginButton()
+     */
+    public LoginPageObjects clickLoginButton() {
+        driver.findElement(loginButtonLocator).click();
+        LoginPageObjects loginPageObjects = new LoginPageObjects(driver);
+        return loginPageObjects;
+    }
+
     public WebElement getSlider() { return driver.findElement(sliderLocator); }
     public WebElement getPageTitle() { return driver.findElement(pageTitleLocator); }
 }
