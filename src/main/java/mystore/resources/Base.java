@@ -57,8 +57,8 @@ public class Base {
     }
 
     public int generateRandomInt() {
-        int randomInt = RandomUtils.nextInt(1, 10000);
-        return randomInt;
+        int generatedInt = RandomUtils.nextInt(1, 10000);
+        return generatedInt;
     }
 }
 
