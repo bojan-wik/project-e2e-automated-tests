@@ -18,10 +18,6 @@ public class LoginPageTests extends TestBase {
 
     @Test
     public void login() {
-        /**
-         * Tworzę obiekt klasy 'HomePageObjects', jako argument podaję driver i tym samym przekazuję wiedzę o wcześniej utworzonym i zasilonym driverze
-         * do klasy z obiektami dla HomePage.
-         */
         HomePage homePage = new HomePage(driver);
         //homePage.getLoginButton().click();
         //LoginPage loginPage = new LoginPage(driver);
@@ -29,6 +25,13 @@ public class LoginPageTests extends TestBase {
         loginPage.getEmailField().sendKeys("test@test.com");
         loginPage.getPasswordField().sendKeys("password");
         loginPage.getSigninButton().click();
+    }
+
+    @Test
+    public void forgotPassword() {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.getForgotPasswordLink().click();
+        System.out.println(loginPage.getForgotPasswordHeading().getText());
     }
 
     @AfterTest
