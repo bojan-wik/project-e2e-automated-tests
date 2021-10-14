@@ -9,10 +9,10 @@ import org.openqa.selenium.WebElement;
  * albo footer (pole newsletter). Z początku chciałem tworzyć osobne klasy dla tych obiektów ('FooterObjects.java' itd.), ale przeczytałem, że lepszą
  * praktyką jest stworzenie takiej klasy 'BasePageObjects' po której potem będą dziedziczyły wszystkie inne klasy z obiektami poszczególnych stron.
  * */
-public class BasePageObjects {
+public class BasePage {
 
     WebDriver driver;
-    public BasePageObjects(WebDriver driver) {
+    public BasePage(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -24,4 +24,5 @@ public class BasePageObjects {
 /**
  * Żródła:
  * https://stackoverflow.com/questions/59901772/how-to-add-repeatable-sections-like-header-footer-with-all-page-classes-of-an-ap
+ * https://devqa.io/page-object-framework-java-webdriver/
  */

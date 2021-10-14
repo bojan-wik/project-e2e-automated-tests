@@ -1,16 +1,13 @@
 package mystore;
 
-import mystore.pageobjects.HomePageObjects;
-import mystore.pageobjects.LoginPageObjects;
-import mystore.resources.Base;
+import mystore.resources.TestBase;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class LoginPage_DataProvider extends Base {
+public class LoginPageTests_DataProvider extends TestBase {
 
     @BeforeTest
     public void setUpTest() throws IOException {

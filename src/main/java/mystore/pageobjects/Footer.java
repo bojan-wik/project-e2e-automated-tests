@@ -4,10 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class FooterObjects {
+public class Footer {
 
     WebDriver driver;
-    public FooterObjects(WebDriver driver) {
+    public Footer(WebDriver driver) {
         this.driver = driver;
     }
 

@@ -6,13 +6,12 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import mystore.pageobjects.ContactPageObjects;
-import mystore.pageobjects.HomePageObjects;
-import mystore.resources.Base;
+import mystore.pageobjects.HomePage;
+import mystore.resources.TestBase;
 
 import java.io.IOException;
 
-public class ContactPage extends Base {
+public class ContactPageTests extends TestBase {
 
     @BeforeTest
     public void setUpTests() throws IOException {
@@ -23,26 +22,26 @@ public class ContactPage extends Base {
 
     @Test
     public void openContactPage() {
-        HomePageObjects homePageObjects = new HomePageObjects(driver);
-        homePageObjects.getContactButton().click();
-        ContactPageObjects contactPageObjects = new ContactPageObjects(driver);
+        HomePage homePage = new HomePage(driver);
+        homePage.getContactButton().click();
+        mystore.pageobjects.ContactPage contactPage = new mystore.pageobjects.ContactPage(driver);
         String expectedContactNavigationText = "contact";
-        String actualContactNavigationText = contactPageObjects.getContactNavigation().getText();
+        String actualContactNavigationText = contactPage.getContactNavigation().getText();
         Assert.assertTrue(actualContactNavigationText.toLowerCase().contains(expectedContactNavigationText));
     }
 
     @Test
     public void sendValidMessageWithoutFile() {
-        ContactPageObjects contactPageObjects = new ContactPageObjects(driver);
+        mystore.pageobjects.ContactPage contactPage = new mystore.pageobjects.ContactPage(driver);
         Actions actions = new Actions(driver);
-        actions.moveToElement(contactPageObjects.getSubjectHeadingDropdown()).click()
+        actions.moveToElement(contactPage.getSubjectHeadingDropdown()).click()
                 .sendKeys(Keys.ARROW_DOWN, Keys.ENTER).build().perform();
-        contactPageObjects.getEmailField().sendKeys(generateRandomString() + "@test.com");
-        contactPageObjects.getOrderRefField().sendKeys(Integer.toString(generateRandomInt()));
-        contactPageObjects.getMessageField().sendKeys("test message");
-        contactPageObjects.getSendButton().click();
-        Assert.assertTrue(contactPageObjects.getMessageSentAlert().isDisplayed());
-        String actualMessageSentAlert = contactPageObjects.getMessageSentAlert().getText();
+        contactPage.getEmailField().sendKeys(generateRandomString() + "@test.com");
+        contactPage.getOrderRefField().sendKeys(Integer.toString(generateRandomInt()));
+        contactPage.getMessageField().sendKeys("test message");
+        contactPage.getSendButton().click();
+        Assert.assertTrue(contactPage.getMessageSentAlert().isDisplayed());
+        String actualMessageSentAlert = contactPage.getMessageSentAlert().getText();
         Assert.assertTrue(actualMessageSentAlert.toLowerCase().contains("successfully sent"));
     }
 

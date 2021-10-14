@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
  * Jest to klasa bazowa dla mojego frameworka, która będzie uruchamiana za każdym razem, kiedy framework będzie odpalany.
  */
 
-public class Base {
+public class TestBase {
 
     /**
      * a) Dobrą praktyką jest tworzenie obiektu klasy WebDriver, jako global variable, a nie wewn. metody.

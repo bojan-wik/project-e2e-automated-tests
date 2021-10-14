@@ -4,13 +4,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class HomePageObjects extends BasePageObjects {
+public class HomePage extends BasePage {
 
     //WebDriver driver;
     /*public HomePageObjects(WebDriver driver) {
         this.driver = driver;
     }*/
-    public HomePageObjects(WebDriver driver) {
+    public HomePage(WebDriver driver) {
         super(driver);
     }
 
@@ -29,10 +29,10 @@ public class HomePageObjects extends BasePageObjects {
      * i zawsze po tym następowało przejście do strony logowania i musiałem tworzyć obiekt klasy LoginPageObjects.
      * Teraz ten cały proces mam zawarty w metodzie clickLoginButton()
      */
-    public LoginPageObjects clickLoginButton() {
+    public LoginPage clickLoginButton() {
         driver.findElement(loginButtonLocator).click();
-        LoginPageObjects loginPageObjects = new LoginPageObjects(driver);
-        return loginPageObjects;
+        LoginPage loginPage = new LoginPage(driver);
+        return loginPage;
     }
 
     public WebElement getSlider() { return driver.findElement(sliderLocator); }

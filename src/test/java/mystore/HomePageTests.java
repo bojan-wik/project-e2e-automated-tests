@@ -2,8 +2,7 @@ package mystore;
 
 import org.testng.Assert;
 import org.testng.annotations.*;
-import mystore.pageobjects.HomePageObjects;
-import mystore.resources.Base;
+import mystore.resources.TestBase;
 
 import java.io.IOException;
 
@@ -11,7 +10,7 @@ import java.io.IOException;
  * Pomiędzy klasami 'Base' i 'HomePage' tworzę relację parent-child. Dzięki temu klasa 'HomePage' ma dostęp do wszystkich
  * metod klasy 'Base'
  */
-public class HomePage extends Base {
+public class HomePageTests extends TestBase {
 
     /**
      * @BeforeTest : It will call Only once, before Test method.
@@ -39,7 +38,7 @@ public class HomePage extends Base {
          * wywołać metodę 'getProperty()' i bezp. zczytać wyniesiony wcześniej parametr 'url'
          */
         //driver.get(properties.getProperty("url"));
-        HomePageObjects homePageObjects = new HomePageObjects(driver);
+        mystore.pageobjects.HomePage homePageObjects = new mystore.pageobjects.HomePage(driver);
         String expectedPageTitle = "Automation Practice Website";
         String actualPageTitle = homePageObjects.getPageTitle().getText();
         Assert.assertEquals(actualPageTitle, expectedPageTitle);

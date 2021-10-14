@@ -3,10 +3,10 @@
 <suite name="Test Suite 1">
     <test name="Test Folder 1">
          <classes>
-             <class name="mystore.HomePage"/>
-             <class name="mystore.LoginPage"/>
-             <class name="mystore.ContactPage"/>
-             <class name="mystore.Footer"/>
+             <class name="mystore.HomePageTests"/>
+             <class name="mystore.LoginPageTests"/>
+             <class name="mystore.ContactPageTests"/>
+             <class name="mystore.FooterTests"/>
           </classes>
      </test> <!-- Test -->
 </suite> <!-- Suite -->
