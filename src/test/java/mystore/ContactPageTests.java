@@ -1,5 +1,6 @@
 package mystore;
 
+import mystore.pageobjects.ContactPage;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -24,7 +25,7 @@ public class ContactPageTests extends TestBase {
     public void openContactPage() {
         HomePage homePage = new HomePage(driver);
         homePage.getContactButton().click();
-        mystore.pageobjects.ContactPage contactPage = new mystore.pageobjects.ContactPage(driver);
+        ContactPage contactPage = new ContactPage(driver);
         String expectedContactNavigationText = "contact";
         String actualContactNavigationText = contactPage.getContactNavigation().getText();
         Assert.assertTrue(actualContactNavigationText.toLowerCase().contains(expectedContactNavigationText));
@@ -32,7 +33,7 @@ public class ContactPageTests extends TestBase {
 
     @Test
     public void sendValidMessageWithoutFile() {
-        mystore.pageobjects.ContactPage contactPage = new mystore.pageobjects.ContactPage(driver);
+        ContactPage contactPage = new ContactPage(driver);
         Actions actions = new Actions(driver);
         actions.moveToElement(contactPage.getSubjectHeadingDropdown()).click()
                 .sendKeys(Keys.ARROW_DOWN, Keys.ENTER).build().perform();

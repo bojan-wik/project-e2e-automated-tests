@@ -6,7 +6,7 @@
              <class name="mystore.HomePageTests"/>
              <class name="mystore.LoginPageTests"/>
              <class name="mystore.ContactPageTests"/>
-             <class name="mystore.FooterTests"/>
+             <class name="mystore.NewsletterTests"/>
           </classes>
      </test> <!-- Test -->
 </suite> <!-- Suite -->

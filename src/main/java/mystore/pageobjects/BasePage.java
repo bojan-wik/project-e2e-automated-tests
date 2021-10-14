@@ -6,19 +6,46 @@ import org.openqa.selenium.WebElement;
 
 /**
  * Ta klasa służy do przechowywania obiektów, które są wspólne dla całej aplikacji np. obiekty z sekcji header (buttony 'Contact us', 'Sign in'),
- * albo footer (pole newsletter). Z początku chciałem tworzyć osobne klasy dla tych obiektów ('FooterObjects.java' itd.), ale przeczytałem, że lepszą
- * praktyką jest stworzenie takiej klasy 'BasePageObjects' po której potem będą dziedziczyły wszystkie inne klasy z obiektami poszczególnych stron.
+ * albo footer (pole newsletter). Z początku chciałem tworzyć osobne klasy dla tych obiektów ('Footer.java' itd.), ale przeczytałem, że lepszą
+ * praktyką jest stworzenie takiej klasy bazowej, po której potem będą dziedziczyły wszystkie inne klasy z pageobjects.
  * */
 public class BasePage {
-
+    /**
+     * Tutaj wykonuję te same kroki, które wcześniej robiłem w każdej klasie z pageobjects - tworzę obiekt WebDriver i konstruktor klasy.
+     * Różnica polega na tym, że teraz te kroki są wykonywane TYLKO tutaj, a WebDriver jest zasilany za pośrednictwem child-class i keyworda super().
+     */
     WebDriver driver;
     public BasePage(WebDriver driver) {
         this.driver = driver;
     }
 
     By contactButtonLocator = By.id("contact-link");
+    By loginButtonLocator = By.xpath("//a[@class='login']");
+    By newsletterEmailFieldLocator = By.id("newsletter-input");
+    By newsletterSubmitButtonLocator = By.xpath("//button[@name='submitNewsletter']");
+    By invalidEmailAlertLocator = By.className("alert-danger");
+    By validNewEmailAlertLocator = By.className("alert-success");
 
     public WebElement getContactButton() { return driver.findElement(contactButtonLocator); }
+
+    /*public WebElement getLoginButton() {
+        return driver.findElement(loginButtonLocator);
+    }*/
+    /**
+     * Poprzednia metoda (getLoginButton()) zwracała tylko WebElement login buttona. Potem w testcase wykonywałem na tym webelemencie click
+     * i zawsze po tym następowało przejście do strony logowania i musiałem tworzyć obiekt klasy LoginPageObjects.
+     * Teraz ten cały proces mam zawarty w metodzie clickLoginButton()
+     */
+    public LoginPage clickLoginButton() {
+        driver.findElement(loginButtonLocator).click();
+        LoginPage loginPage = new LoginPage(driver);
+        return loginPage;
+    }
+
+    public WebElement getNewsletterEmailField() { return driver.findElement(newsletterEmailFieldLocator); }
+    public WebElement getNewsletterSubmitButton() { return driver.findElement(newsletterSubmitButtonLocator); }
+    public WebElement getInvalidEmailAlert() { return driver.findElement(invalidEmailAlertLocator); }
+    public WebElement getValidNewEmailAlert() { return driver.findElement(validNewEmailAlertLocator); }
 }
 
 /**

@@ -1,5 +1,6 @@
 package mystore;
 
+import mystore.pageobjects.LoginPage;
 import org.testng.annotations.*;
 import mystore.pageobjects.HomePage;
 import mystore.resources.TestBase;
@@ -21,10 +22,10 @@ public class LoginPageTests extends TestBase {
          * Tworzę obiekt klasy 'HomePageObjects', jako argument podaję driver i tym samym przekazuję wiedzę o wcześniej utworzonym i zasilonym driverze
          * do klasy z obiektami dla HomePage.
          */
-        HomePage homePageObjects = new HomePage(driver);
-        //homePageObjects.getLoginButton().click();
-        //LoginPageObjects loginPageObjects = new LoginPageObjects(driver);
-        mystore.pageobjects.LoginPage loginPage = homePageObjects.clickLoginButton();
+        HomePage homePage = new HomePage(driver);
+        //homePage.getLoginButton().click();
+        //LoginPage loginPage = new LoginPage(driver);
+        LoginPage loginPage = homePage.clickLoginButton();
         loginPage.getEmailField().sendKeys("test@test.com");
         loginPage.getPasswordField().sendKeys("password");
         loginPage.getSigninButton().click();

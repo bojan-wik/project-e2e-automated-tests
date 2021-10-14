@@ -1,5 +1,6 @@
 package mystore;
 
+import mystore.pageobjects.BasePage;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -8,7 +9,7 @@ import mystore.resources.TestBase;
 
 import java.io.IOException;
 
-public class FooterTests extends TestBase {
+public class NewsletterTests extends TestBase {
 
     @BeforeTest
     public void setUpTests() throws IOException {
@@ -19,23 +20,23 @@ public class FooterTests extends TestBase {
 
     @Test
     public void subscribeToNewsletterWithValidNewEmail() throws IOException {
-        mystore.pageobjects.Footer footer = new mystore.pageobjects.Footer(driver);
+        BasePage basePage = new BasePage(driver);
         String validEmail = generateRandomString() + "@test.com";
-        footer.getNewsletterEmailField().sendKeys(validEmail);
-        footer.getNewsletterSubmitButton().click();
+        basePage.getNewsletterEmailField().sendKeys(validEmail);
+        basePage.getNewsletterSubmitButton().click();
         String expectedValidNewEmailAlert = "successfully subscribed";
-        String actualValidNewEmailAlert = footer.getValidNewEmailAlert().getText();
+        String actualValidNewEmailAlert = basePage.getValidNewEmailAlert().getText();
         Assert.assertTrue(actualValidNewEmailAlert.toLowerCase().contains(expectedValidNewEmailAlert));
     }
 
     @Test
     public void subscribeToNewsletterWithInvalidEmail() {
-        mystore.pageobjects.Footer footer = new mystore.pageobjects.Footer(driver);
+        BasePage basePage = new BasePage(driver);
         String invalidEmail = generateRandomString();
-        footer.getNewsletterEmailField().sendKeys(invalidEmail);
-        footer.getNewsletterSubmitButton().click();
+        basePage.getNewsletterEmailField().sendKeys(invalidEmail);
+        basePage.getNewsletterSubmitButton().click();
         String expectedInvalidEmailAlert = "invalid email address";
-        String actualInvalidEmailAlert = footer.getInvalidEmailAlert().getText();
+        String actualInvalidEmailAlert = basePage.getInvalidEmailAlert().getText();
         /**
          * Sprawdzam jedynie, czy fraza "invalid email address" jest obecna. W przyszłości cały komunikat alertu może się zmieniać
          * np. coś może być z małej litery, coś z dużej, zamiast dwukropka myślnik, albo gdzieś dodana spacja, dlatego myślę,

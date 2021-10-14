@@ -4,11 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class ContactPage {
+public class ContactPage extends BasePage {
 
-    WebDriver driver;
     public ContactPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     By contactNavigationLocator = By.xpath("//span[@class='navigation_page']");

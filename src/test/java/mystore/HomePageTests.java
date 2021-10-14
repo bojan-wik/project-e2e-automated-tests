@@ -1,5 +1,6 @@
 package mystore;
 
+import mystore.pageobjects.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import mystore.resources.TestBase;
@@ -38,11 +39,11 @@ public class HomePageTests extends TestBase {
          * wywołać metodę 'getProperty()' i bezp. zczytać wyniesiony wcześniej parametr 'url'
          */
         //driver.get(properties.getProperty("url"));
-        mystore.pageobjects.HomePage homePageObjects = new mystore.pageobjects.HomePage(driver);
+        HomePage homePage = new HomePage(driver);
         String expectedPageTitle = "Automation Practice Website";
-        String actualPageTitle = homePageObjects.getPageTitle().getText();
+        String actualPageTitle = homePage.getPageTitle().getText();
         Assert.assertEquals(actualPageTitle, expectedPageTitle);
-        Assert.assertTrue(homePageObjects.getSlider().isDisplayed());
+        Assert.assertTrue(homePage.getSlider().isDisplayed());
         //driver.quit();
     }
 

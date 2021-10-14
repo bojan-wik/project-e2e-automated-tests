@@ -10,30 +10,16 @@ public class HomePage extends BasePage {
     /*public HomePageObjects(WebDriver driver) {
         this.driver = driver;
     }*/
+    /**
+     * Wcześniej w każdej pageobjects-class tworzyłem obiekt klasy driver, który był zasilany w każdej test-class i przekazywany tutaj.
+     * Teraz ten zasilony driver przekazywany jest nie tutaj, a idzie dalej - do klasy parent, za pośrednictwem super(driver).
+     */
     public HomePage(WebDriver driver) {
         super(driver);
     }
 
-    //By contactButtonLocator = By.id("contact-link");
-    By loginButtonLocator = By.xpath("//a[@class='login']");
     By sliderLocator = By.id("slider_row");
     By pageTitleLocator = By.xpath("//div[@id='editorial_block_center']/h1");
-
-    //public WebElement getContactButton() { return driver.findElement(contactButtonLocator); }
-
-    /*public WebElement getLoginButton() {
-        return driver.findElement(loginButtonLocator);
-    }*/
-    /**
-     * Poprzednia metoda (getLoginButton()) zwracała tylko WebElement login buttona. Potem w testcase wykonywałem na tym webelemencie click
-     * i zawsze po tym następowało przejście do strony logowania i musiałem tworzyć obiekt klasy LoginPageObjects.
-     * Teraz ten cały proces mam zawarty w metodzie clickLoginButton()
-     */
-    public LoginPage clickLoginButton() {
-        driver.findElement(loginButtonLocator).click();
-        LoginPage loginPage = new LoginPage(driver);
-        return loginPage;
-    }
 
     public WebElement getSlider() { return driver.findElement(sliderLocator); }
     public WebElement getPageTitle() { return driver.findElement(pageTitleLocator); }
