@@ -1,6 +1,8 @@
 package mystore;
 
+import mystore.pageobjects.ForgotPasswordPage;
 import mystore.pageobjects.LoginPage;
+import org.testng.Assert;
 import org.testng.annotations.*;
 import mystore.pageobjects.HomePage;
 import mystore.resources.TestBase;
@@ -16,7 +18,7 @@ public class LoginPageTests extends TestBase {
         driver.get(properties.getProperty("url"));
     }
 
-    @Test
+    @Test(priority = 1)
     public void login() {
         HomePage homePage = new HomePage(driver);
         //homePage.getLoginButton().click();
@@ -27,11 +29,11 @@ public class LoginPageTests extends TestBase {
         loginPage.getSigninButton().click();
     }
 
-    @Test
+    @Test(priority = 2)
     public void forgotPassword() {
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.getForgotPasswordLink().click();
-        System.out.println(loginPage.getForgotPasswordHeading().getText());
+        ForgotPasswordPage forgotPasswordPage = loginPage.clickForgotPasswordLink();
+        Assert.assertTrue(forgotPasswordPage.getForgotPasswordHeading().getText().toLowerCase().contains("forgot your password"));
     }
 
     @AfterTest

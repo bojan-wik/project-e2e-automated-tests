@@ -15,7 +15,7 @@ public class LoginPage extends BasePage {
     By forgotPasswordLinkLocator = By.cssSelector("[href*='controller=password']");
     By signinButtonLocator = By.id("SubmitLogin");
 
-    By forgotPasswordHeadingLocator = By.xpath("//h1[@class='page-subheading']");
+
 
     public WebElement getEmailField() {
         return driver.findElement(emailFieldLocator);
@@ -25,11 +25,15 @@ public class LoginPage extends BasePage {
         return driver.findElement(passwordFieldLocator);
     }
 
-    public WebElement getForgotPasswordLink() { return driver.findElement(forgotPasswordLinkLocator); }
+    /**
+     * Robię ten sam zabieg, co w przypadku BasePage.clickLoginButton()
+     */
+    public ForgotPasswordPage clickForgotPasswordLink() {
+        driver.findElement(forgotPasswordLinkLocator).click();
+        return new ForgotPasswordPage(driver);
+    }
 
     public WebElement getSigninButton() {
         return driver.findElement(signinButtonLocator);
     }
-
-    public WebElement getForgotPasswordHeading() { return driver.findElement(forgotPasswordHeadingLocator); }
 }
