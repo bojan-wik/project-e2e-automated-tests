@@ -23,8 +23,8 @@ public class BasePage {
     By loginButtonLocator = By.xpath("//a[@class='login']");
     By newsletterEmailFieldLocator = By.id("newsletter-input");
     By newsletterSubmitButtonLocator = By.xpath("//button[@name='submitNewsletter']");
-    By invalidEmailAlertLocator = By.className("alert-danger");
-    By validNewEmailAlertLocator = By.className("alert-success");
+    By alertFailLocator = By.className("alert-danger");
+    By alertSuccessLocator = By.className("alert-success");
 
     public WebElement getContactButton() { return driver.findElement(contactButtonLocator); }
 
@@ -44,8 +44,8 @@ public class BasePage {
 
     public WebElement getNewsletterEmailField() { return driver.findElement(newsletterEmailFieldLocator); }
     public WebElement getNewsletterSubmitButton() { return driver.findElement(newsletterSubmitButtonLocator); }
-    public WebElement getInvalidEmailAlert() { return driver.findElement(invalidEmailAlertLocator); }
-    public WebElement getValidNewEmailAlert() { return driver.findElement(validNewEmailAlertLocator); }
+    public WebElement getAlertFail() { return driver.findElement(alertFailLocator); }
+    public WebElement getAlertSuccess() { return driver.findElement(alertSuccessLocator); }
 }
 
 /**

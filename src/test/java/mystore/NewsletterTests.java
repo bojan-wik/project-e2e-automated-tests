@@ -25,7 +25,7 @@ public class NewsletterTests extends TestBase {
         basePage.getNewsletterEmailField().sendKeys(validEmail);
         basePage.getNewsletterSubmitButton().click();
         String expectedValidNewEmailAlert = "successfully subscribed";
-        String actualValidNewEmailAlert = basePage.getValidNewEmailAlert().getText();
+        String actualValidNewEmailAlert = basePage.getAlertSuccess().getText();
         Assert.assertTrue(actualValidNewEmailAlert.toLowerCase().contains(expectedValidNewEmailAlert));
     }
 
@@ -36,7 +36,7 @@ public class NewsletterTests extends TestBase {
         basePage.getNewsletterEmailField().sendKeys(invalidEmail);
         basePage.getNewsletterSubmitButton().click();
         String expectedInvalidEmailAlert = "invalid email address";
-        String actualInvalidEmailAlert = basePage.getInvalidEmailAlert().getText();
+        String actualInvalidEmailAlert = basePage.getAlertFail().getText();
         /**
          * Sprawdzam jedynie, czy fraza "invalid email address" jest obecna. W przyszłości cały komunikat alertu może się zmieniać
          * np. coś może być z małej litery, coś z dużej, zamiast dwukropka myślnik, albo gdzieś dodana spacja, dlatego myślę,
