@@ -10,9 +10,9 @@ public class ForgotPasswordPage extends BasePage {
         super(driver);
     }
 
-    By forgotPasswordHeadingLocator = By.xpath("//h1[@class='page-subheading']");
-    By emailFieldLocator = By.id("email");
-    By retrievePasswordButtonLocator = By.xpath("//form[@id='form_forgotpassword']/fieldset/p/button");
+    private By forgotPasswordHeadingLocator = By.xpath("//h1[@class='page-subheading']");
+    private By emailFieldLocator = By.id("email");
+    private By retrievePasswordButtonLocator = By.xpath("//form[@id='form_forgotpassword']/fieldset/p/button");
 
     public WebElement getForgotPasswordHeading() { return driver.findElement(forgotPasswordHeadingLocator); }
 

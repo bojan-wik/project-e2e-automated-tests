@@ -34,10 +34,12 @@ public class LoginPageTests extends TestBase {
     public void forgotPassword() {
         LoginPage loginPage = new LoginPage(driver);
         ForgotPasswordPage forgotPasswordPage = loginPage.clickForgotPasswordLink();
-        Assert.assertTrue(forgotPasswordPage.getForgotPasswordHeading().getText().toLowerCase().contains("forgot your password"));
+        Assert.assertTrue(forgotPasswordPage.getForgotPasswordHeading().getText().toLowerCase()
+                .contains("forgot your password"));
         forgotPasswordPage.getEmailField().sendKeys(properties.getProperty("email"));
         forgotPasswordPage.getRetrievePasswordButton().click();
-        System.out.println(forgotPasswordPage.getAlertSuccess().getText());
+        Assert.assertTrue(forgotPasswordPage.getAlertSuccess().getText().toLowerCase()
+                .contains("confirmation email has been sent"));
     }
 
     @AfterTest

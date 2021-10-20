@@ -10,13 +10,13 @@ public class ContactPage extends BasePage {
         super(driver);
     }
 
-    By contactNavigationLocator = By.xpath("//span[@class='navigation_page']");
-    By subjectHeadingDropdownLocator = By.id("id_contact");
-    By emailFieldLocator = By.id("email");
-    By orderRefFieldLocator = By.id("id_order");
-    By messageFieldLocator = By.id("message");
-    By sendButtonLocator = By.id("submitMessage");
-    By messageSentAlertLocator = By.xpath("//div[@id='center_column']/p");
+    private By contactNavigationLocator = By.xpath("//span[@class='navigation_page']");
+    private By subjectHeadingDropdownLocator = By.id("id_contact");
+    private By emailFieldLocator = By.id("email");
+    private By orderRefFieldLocator = By.id("id_order");
+    private By messageFieldLocator = By.id("message");
+    private By sendButtonLocator = By.id("submitMessage");
+    private By messageSentAlertLocator = By.xpath("//div[@id='center_column']/p");
 
     public WebElement getContactNavigation() {
         return driver.findElement(contactNavigationLocator);

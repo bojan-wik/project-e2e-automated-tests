@@ -10,12 +10,10 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    By emailFieldLocator = By.id("email");
-    By passwordFieldLocator = By.id("passwd");
-    By forgotPasswordLinkLocator = By.cssSelector("[href*='controller=password']");
-    By signinButtonLocator = By.id("SubmitLogin");
-
-
+    private By emailFieldLocator = By.id("email");
+    private By passwordFieldLocator = By.id("passwd");
+    private By forgotPasswordLinkLocator = By.cssSelector("[href*='controller=password']");
+    private By signinButtonLocator = By.id("SubmitLogin");
 
     public WebElement getEmailField() {
         return driver.findElement(emailFieldLocator);

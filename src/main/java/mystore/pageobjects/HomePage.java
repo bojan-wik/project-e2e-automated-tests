@@ -19,8 +19,8 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
-    By sliderLocator = By.id("slider_row");
-    By pageTitleLocator = By.xpath("//div[@id='editorial_block_center']/h1");
+    private By sliderLocator = By.id("slider_row");
+    private By pageTitleLocator = By.xpath("//div[@id='editorial_block_center']/h1");
 
     public WebElement getSlider() { return driver.findElement(sliderLocator); }
     public WebElement getPageTitle() { return driver.findElement(pageTitleLocator); }

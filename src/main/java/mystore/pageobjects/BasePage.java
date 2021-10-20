@@ -19,15 +19,22 @@ public class BasePage {
         this.driver = driver;
     }
 
-    By contactButtonLocator = By.id("contact-link");
-    By loginButtonLocator = By.xpath("//a[@class='login']");
-    By newsletterEmailFieldLocator = By.id("newsletter-input");
-    By newsletterSubmitButtonLocator = By.xpath("//button[@name='submitNewsletter']");
-    By alertFailLocator = By.className("alert-danger");
-    By alertSuccessLocator = By.className("alert-success");
+    /**
+     * Dobrą praktyką jest identyfikować zmienne, które nie powinny być dostępne spoza danej klasy i deklarować je jako private.
+     * Potem te zmienne private można obudować w metody, które z kolei już mogą być dostępne na zewn., poprzez deklarowanie ich jako np. public.
+     * JEST TO PRZYKŁAD ENCAPSULATION - JEDNEJ Z GŁÓWNYCH ZASAD OOP.
+     * W tym przypadku zmienne typu 'By', które są locatorami deklaruję jako private,
+     * a potem obudowuję je w metody, które zwracają mi już całe webelementy i są zadeklarowane jako public.
+     * Tutaj chodzi np. o to, żeby ograniczyć dostęp do locatorów i nie pozwolić np. na pisanie 'driver.findElement(contactButtonLocator)' w testkejsach, bo to zła praktyka.
+     */
+    private By contactButtonLocator = By.id("contact-link");
+    private By loginButtonLocator = By.xpath("//a[@class='login']");
+    private By newsletterEmailFieldLocator = By.id("newsletter-input");
+    private By newsletterSubmitButtonLocator = By.xpath("//button[@name='submitNewsletter']");
+    private By alertFailLocator = By.className("alert-danger");
+    private By alertSuccessLocator = By.className("alert-success");
 
     public WebElement getContactButton() { return driver.findElement(contactButtonLocator); }
-
     /*public WebElement getLoginButton() {
         return driver.findElement(loginButtonLocator);
     }*/
@@ -41,7 +48,6 @@ public class BasePage {
         LoginPage loginPage = new LoginPage(driver);
         return loginPage;
     }
-
     public WebElement getNewsletterEmailField() { return driver.findElement(newsletterEmailFieldLocator); }
     public WebElement getNewsletterSubmitButton() { return driver.findElement(newsletterSubmitButtonLocator); }
     public WebElement getAlertFail() { return driver.findElement(alertFailLocator); }
