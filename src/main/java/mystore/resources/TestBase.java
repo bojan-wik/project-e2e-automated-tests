@@ -31,15 +31,15 @@ public class TestBase {
      */
     public WebDriver initializeDriver() throws IOException {
         properties = new Properties();
-        FileInputStream propertiesFileInput = new FileInputStream("C:\\Users\\bojanoww\\IdeaProjects\\project-e2e-automated-tests\\src\\main\\java\\mystore\\resources\\data.properties");
+        FileInputStream propertiesFileInput = new FileInputStream(System.getProperty("user.home") + "\\IdeaProjects\\project-e2e-automated-tests\\src\\main\\java\\mystore\\resources\\data.properties");
         properties.load(propertiesFileInput);
         String browser = properties.getProperty("browser");
         System.out.printf("I'm starting execution of a test case in a browser: %s\n", browser);
         if (browser.equals("chrome")) {
-            System.setProperty("webdriver.chrome.driver", "C:\\Tools\\Webdrivers\\Chrome\\94\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "\\IdeaProjects\\project-e2e-automated-tests\\webdrivers\\chromedriver.exe");
             driver = new ChromeDriver();
         } else if (browser.equals("firefox")) {
-            System.setProperty("webdriver.gecko.driver", "C:\\Tools\\Webdrivers\\Firefox\\geckodriver-v0.26.0-win64\\geckodriver.exe");
+            System.setProperty("webdriver.gecko.driver", System.getProperty("user.home") + "\\IdeaProjects\\project-e2e-automated-tests\\webdrivers\\geckodriver.exe");
             driver = new FirefoxDriver();
         }
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
