@@ -8,8 +8,8 @@ import mystore.resources.TestBase;
 import java.io.IOException;
 
 /**
- * Pomiędzy klasami 'Base' i 'HomePage' tworzę relację parent-child. Dzięki temu klasa 'HomePage' ma dostęp do wszystkich
- * metod klasy 'Base'
+ * Pomiędzy klasami 'TestBase' i 'HomePageTests' tworzę relację parent-child. Dzięki temu klasa 'HomePageTests' ma dostęp do wszystkich
+ * metod klasy 'TestBase'
  */
 public class HomePageTests extends TestBase {
 
@@ -24,8 +24,8 @@ public class HomePageTests extends TestBase {
         driver.get(properties.getProperty("url"));
     }
 
-    @Test
-    public void openHomePage() {
+    //@Test
+    public void verifyPageTitle() {
         /**
          * Kroki inicjalizowania drivera, otwierania URLa i zamykania drivera powtarzają się w każdym test case - z tego powodu wynoszę je
          * do metod setUpTest() i tearDownTest() żeby ich nie powtarzać co testcase
@@ -43,15 +43,26 @@ public class HomePageTests extends TestBase {
         String expectedPageTitle = "Automation Practice Website";
         String actualPageTitle = homePage.getPageTitle().getText();
         Assert.assertEquals(actualPageTitle, expectedPageTitle);
-        Assert.assertTrue(homePage.getSlider().isDisplayed());
         //driver.quit();
+    }
+
+    @Test
+    public void verifyPopularAndBestsellersLinks() {
+        HomePage homePage = new HomePage(driver);
+        Assert.assertTrue((homePage.getPopularLink().isDisplayed())
+                && (homePage.getBestsellersLink().isDisplayed()));
+        // verify that 'Bestsellers' link is not focused by default
+        Assert.assertNotEquals(driver.switchTo().activeElement(), homePage.getBestsellersLink());
+        // click on 'Bestsellers' link and verify that it is focused now
+        homePage.getBestsellersLink().click();
+        Assert.assertEquals(driver.switchTo().activeElement(), homePage.getBestsellersLink());
     }
 
     @AfterTest
     public void tearDownTests() {
         System.out.println("tear down tests");
-        if (driver != null) {
+        /*if (driver != null) {
             driver.quit();
-        }
+        }*/
     }
 }

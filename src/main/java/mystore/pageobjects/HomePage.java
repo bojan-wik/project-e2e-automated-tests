@@ -11,8 +11,8 @@ public class HomePage extends BasePage {
         this.driver = driver;
     }*/
     /**
-     * Wcześniej w każdej klasie-pageobjects tworzyłem jej własny WebDriver-obiekt i konstruktor, który przyjmował WebDriver-obiekt z klasy-test
-     * i przekazywał go do wcześniej utworzonego WebDriver-obiektu.
+     * Wcześniej w każdej klasie-pageobjects tworzyłem jej własny WebDriver-obiekt i konstruktor, który przyjmował
+     * WebDriver-obiekt z klasy-test i przekazywał go do wcześniej utworzonego WebDriver-obiektu.
      * Teraz ten zasilony driver przekazywany jest nie tutaj, a idzie dalej - do parent-klasy, za pośrednictwem super(driver).
      */
     public HomePage(WebDriver driver) {
@@ -20,8 +20,12 @@ public class HomePage extends BasePage {
     }
 
     private By sliderLocator = By.id("slider_row");
+    private By popularLinkLocator = By.xpath("//a[@href='#homefeatured']");
+    private By bestsellersLinkLocator = By.xpath("//a[@href='#blockbestsellers']");
     private By pageTitleLocator = By.xpath("//div[@id='editorial_block_center']/h1");
 
     public WebElement getSlider() { return driver.findElement(sliderLocator); }
+    public WebElement getPopularLink() { return driver.findElement(popularLinkLocator); }
+    public WebElement getBestsellersLink() { return driver.findElement(bestsellersLinkLocator); }
     public WebElement getPageTitle() { return driver.findElement(pageTitleLocator); }
 }
