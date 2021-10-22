@@ -13,6 +13,10 @@ public class LoginPageTests extends TestBase {
 
     HomePage homePage;
     //LoginPage loginPage;
+    //FIXME tworzenie obiektu klasy LoginPage w tej test-klasie odbywa się na 2 sposoby:
+    // * LoginPage loginPage = new LoginPage(driver);
+    // * LoginPage loginPage = homePage.clickLoginButton();
+    // Pomyśleć nad najlepszym, generycznym rozwiązaniem
 
     @BeforeTest
     public void setUpTest() throws IOException {
