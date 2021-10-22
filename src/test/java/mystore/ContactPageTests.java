@@ -14,18 +14,21 @@ import java.io.IOException;
 
 public class ContactPageTests extends TestBase {
 
+    HomePage homePage;
+    ContactPage contactPage;
+
     @BeforeTest
     public void setUpTests() throws IOException {
         System.out.println("set up tests");
         driver = initializeDriver();
         driver.get(properties.getProperty("url"));
+        homePage = new HomePage(driver);
+        contactPage = new ContactPage(driver);
     }
 
     @Test
     public void openContactPage() {
-        HomePage homePage = new HomePage(driver);
         homePage.getContactButton().click();
-        ContactPage contactPage = new ContactPage(driver);
         String expectedContactNavigationText = "contact";
         String actualContactNavigationText = contactPage.getContactNavigation().getText();
         Assert.assertTrue(actualContactNavigationText.toLowerCase().contains(expectedContactNavigationText));
@@ -33,7 +36,6 @@ public class ContactPageTests extends TestBase {
 
     @Test
     public void sendValidMessageWithoutFile() {
-        ContactPage contactPage = new ContactPage(driver);
         Actions actions = new Actions(driver);
         actions.moveToElement(contactPage.getSubjectHeadingDropdown()).click()
                 .sendKeys(Keys.ARROW_DOWN, Keys.ENTER).build().perform();

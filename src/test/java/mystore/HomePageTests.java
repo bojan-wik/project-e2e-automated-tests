@@ -13,6 +13,8 @@ import java.io.IOException;
  */
 public class HomePageTests extends TestBase {
 
+    HomePage homePage;
+
     /**
      * @BeforeTest : It will call Only once, before Test method.
      * @BeforeMethod It will call Every time before Test Method.
@@ -22,9 +24,10 @@ public class HomePageTests extends TestBase {
         System.out.println("set up tests");
         driver = initializeDriver();
         driver.get(properties.getProperty("url"));
+        homePage = new HomePage(driver);
     }
 
-    //@Test
+    @Test
     public void verifyPageTitle() {
         /**
          * Kroki inicjalizowania drivera, otwierania URLa i zamykania drivera powtarzają się w każdym test case - z tego powodu wynoszę je
@@ -39,7 +42,6 @@ public class HomePageTests extends TestBase {
          * wywołać metodę 'getProperty()' i bezp. zczytać wyniesiony wcześniej parametr 'url'
          */
         //driver.get(properties.getProperty("url"));
-        HomePage homePage = new HomePage(driver);
         String expectedPageTitle = "Automation Practice Website";
         String actualPageTitle = homePage.getPageTitle().getText();
         Assert.assertEquals(actualPageTitle, expectedPageTitle);
@@ -48,7 +50,6 @@ public class HomePageTests extends TestBase {
 
     @Test
     public void verifyPopularAndBestsellersLinks() {
-        HomePage homePage = new HomePage(driver);
         Assert.assertTrue((homePage.getPopularLink().isDisplayed())
                 && (homePage.getBestsellersLink().isDisplayed()));
         // verify that 'Bestsellers' link is not focused by default

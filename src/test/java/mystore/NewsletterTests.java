@@ -11,16 +11,18 @@ import java.io.IOException;
 
 public class NewsletterTests extends TestBase {
 
+    BasePage basePage;
+
     @BeforeTest
     public void setUpTests() throws IOException {
         System.out.println("set up tests");
         driver = initializeDriver();
         driver.get(properties.getProperty("url"));
+        basePage = new BasePage(driver);
     }
 
     @Test
     public void subscribeToNewsletterWithValidNewEmail() {
-        BasePage basePage = new BasePage(driver);
         String validEmail = generateRandomString() + "@test.com";
         basePage.getNewsletterEmailField().sendKeys(validEmail);
         basePage.getNewsletterSubmitButton().click();
@@ -31,7 +33,6 @@ public class NewsletterTests extends TestBase {
 
     @Test
     public void subscribeToNewsletterWithInvalidEmail() {
-        BasePage basePage = new BasePage(driver);
         String invalidEmail = generateRandomString();
         basePage.getNewsletterEmailField().sendKeys(invalidEmail);
         basePage.getNewsletterSubmitButton().click();
