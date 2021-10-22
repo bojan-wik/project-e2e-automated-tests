@@ -6,8 +6,6 @@ Goal of the project is to create a fully functional testing framework and learn 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for testing purposes.
-
 ### Prerequisites
 
 * at least Java 8;
