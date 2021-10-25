@@ -35,19 +35,19 @@ public class BasePage {
     private By alertSuccessLocator = By.className("alert-success");
 
     public WebElement getContactButton() { return driver.findElement(contactButtonLocator); }
-    /*public WebElement getLoginButton() {
+    public WebElement getLoginButton() {
         return driver.findElement(loginButtonLocator);
-    }*/
+    }
     /**
      * Poprzednia metoda (getLoginButton()) zwracała tylko WebElement login buttona. Potem w testcase wykonywałem na tym webelemencie click
      * i zawsze po tym następowało przejście do strony logowania i musiałem tworzyć obiekt klasy LoginPageObjects.
      * Teraz ten cały proces mam zawarty w metodzie clickLoginButton()
      */
-    public LoginPage clickLoginButton() {
+    /*public LoginPage clickLoginButton() {
         driver.findElement(loginButtonLocator).click();
         LoginPage loginPage = new LoginPage(driver);
         return loginPage;
-    }
+    }*/
     public WebElement getNewsletterEmailField() { return driver.findElement(newsletterEmailFieldLocator); }
     public WebElement getNewsletterSubmitButton() { return driver.findElement(newsletterSubmitButtonLocator); }
     public WebElement getAlertFail() { return driver.findElement(alertFailLocator); }
