@@ -62,3 +62,10 @@ public class TestBase {
     }
 }
 
+//FIXME
+// 0. Poprawna struktura frameworka?
+//      https://stackoverflow.com/questions/53115416/structure-of-an-automation-framework-components-in-maven-project
+//      https://stackoverflow.com/questions/51400582/directory-structure-for-cucumber-maven-pom-project-under-src-test-folder/51401626#51401626
+// 1. Dodać logowanie (log4j)
+// 1.1. Dodać printowanie logów do wszystkich testcase
+

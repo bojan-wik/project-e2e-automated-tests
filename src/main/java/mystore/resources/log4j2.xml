@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Properties>
+        <Property name="basePath">./logs</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <!--Dodaję ten tag, aby zapisywać logi do zewn. plików. fileName - tu określam nazwę pierwszego pliku,
+         filePattern - tu określam pattern jakim mają być nazywane kolejne pliki po przekroczeniu 500kb -->
+        <RollingFile name="File" fileName="${basePath}/prints.log"
+                     filePattern="${basePath}/prints-%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <!--Tu określam max. rozmiar pliku z logami, w tym przypadku 500kb.
+            Po przekroczeniu będzie tworzony kolejny plik z logami-->
+            <SizeBasedTriggeringPolicy size="500" />
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <!--Tutaj definiuję customowy poziom logowania per klasa,
+        czyli w klasie 'Demo1' będą logowane tylko logi typu error.
+        Żeby nie dublować logów wywoływanych zarówno z tagów <Logger> jak i <Root> muszę ustawić additivity="false"-->
+        <Logger name="Chapter25_Log4j.alpha.Demo1" level="error" additivity="false">
+            <AppenderRef ref="File"/>
+        </Logger>
+        <!--Tutaj definiuję defaultowy poziom logowania per cały projekt,
+         czyli jeżeli level="trace" to defaultowo będą logowane wszystkie typy logów-->
+        <Root level="trace">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
+<!--
+Żeby ten plik konfiguracyjny działał muszę go dodać do build path w następujący sposób (w IntelliJ):
+File -> Project Structure -> Modules (wybieram moduł) -> Sources -> klikam prawym na resources (w którym jest log4j2.xml)
+i zaznaczam 'Sources'. Po prawej stronie jest sekcja 'Source Folders' w której powinienem mieć pozycje
+ * src
+ * src/resources
+-->
