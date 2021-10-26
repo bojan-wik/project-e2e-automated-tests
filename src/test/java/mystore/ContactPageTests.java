@@ -8,7 +8,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import mystore.pageobjects.HomePage;
-import mystore.resources.TestBase;
 
 import java.io.IOException;
 

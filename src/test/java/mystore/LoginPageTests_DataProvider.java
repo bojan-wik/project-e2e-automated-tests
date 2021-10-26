@@ -1,6 +1,5 @@
 package mystore;
 
-import mystore.resources.TestBase;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;

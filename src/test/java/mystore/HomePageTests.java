@@ -3,7 +3,6 @@ package mystore;
 import mystore.pageobjects.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.*;
-import mystore.resources.TestBase;
 
 import java.io.IOException;
 

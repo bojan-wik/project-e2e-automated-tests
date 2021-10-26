@@ -1,4 +1,4 @@
-package mystore.resources;
+package mystore;
 
 import org.apache.commons.lang3.RandomUtils;
 import org.openqa.selenium.WebDriver;
@@ -31,7 +31,7 @@ public class TestBase {
      */
     public WebDriver initializeDriver() throws IOException {
         properties = new Properties();
-        FileInputStream propertiesFileInput = new FileInputStream(System.getProperty("user.home") + "\\IdeaProjects\\project-e2e-automated-tests\\src\\main\\java\\mystore\\resources\\data.properties");
+        FileInputStream propertiesFileInput = new FileInputStream(System.getProperty("user.home") + "\\IdeaProjects\\project-e2e-automated-tests\\src\\main\\resources\\data.properties");
         properties.load(propertiesFileInput);
         String browser = properties.getProperty("browser");
         System.out.printf("I'm starting execution of a test case in a browser: %s\n", browser);
@@ -65,7 +65,6 @@ public class TestBase {
 //FIXME
 // 0. Poprawna struktura frameworka?
 //      https://stackoverflow.com/questions/53115416/structure-of-an-automation-framework-components-in-maven-project
-//      https://stackoverflow.com/questions/51400582/directory-structure-for-cucumber-maven-pom-project-under-src-test-folder/51401626#51401626
 // 1. Dodać logowanie (log4j)
 // 1.1. Dodać printowanie logów do wszystkich testcase
 
