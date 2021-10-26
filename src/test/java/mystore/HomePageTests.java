@@ -44,6 +44,7 @@ public class HomePageTests extends TestBase {
         String expectedPageTitle = "Automation Practice Website";
         String actualPageTitle = homePage.getPageTitle().getText();
         Assert.assertEquals(actualPageTitle, expectedPageTitle);
+        logger.info("Page title verified");
         //driver.quit();
     }
 
@@ -56,6 +57,7 @@ public class HomePageTests extends TestBase {
         // click on 'Bestsellers' link and verify that it is focused now
         homePage.getBestsellersLink().click();
         Assert.assertEquals(driver.switchTo().activeElement(), homePage.getBestsellersLink());
+        logger.info("'Popular' and 'Bestsellers' links verified");
     }
 
     @AfterTest

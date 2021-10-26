@@ -1,6 +1,8 @@
 package mystore;
 
 import org.apache.commons.lang3.RandomUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -24,6 +26,7 @@ public class TestBase {
      */
     public WebDriver driver;
     public Properties properties;
+    public static Logger logger = LogManager.getLogger(HomePageTests.class.getName());
 
     /**
      * Tworzę metodę, która będzie odpowiedzialna za inicjalizowanie drivera. Wszystkie stworzone później test casy będą korzystały z tej właśnie metody.
@@ -45,6 +48,7 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
+        logger.info("Driver initialized");
         /**
          * Na koniec zwracam przygotowany obiekt 'driver', który będzie używany przez każdy test case
          */
