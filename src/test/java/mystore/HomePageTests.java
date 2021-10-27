@@ -20,9 +20,10 @@ public class HomePageTests extends TestBase {
      */
     @BeforeTest
     public void setUpTests() throws IOException {
-        System.out.println("set up tests");
+        logger.info("set up {}", this.getClass().getSimpleName());
         driver = initializeDriver();
         driver.get(properties.getProperty("url"));
+        logger.info("HomePage accessed");
         homePage = new HomePage(driver);
     }
 
@@ -62,9 +63,9 @@ public class HomePageTests extends TestBase {
 
     @AfterTest
     public void tearDownTests() {
-        System.out.println("tear down tests");
-        /*if (driver != null) {
+        logger.info("tear down {}", this.getClass().getSimpleName());
+        if (driver != null) {
             driver.quit();
-        }*/
+        }
     }
 }

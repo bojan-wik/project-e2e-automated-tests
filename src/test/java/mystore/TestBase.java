@@ -26,7 +26,12 @@ public class TestBase {
      */
     public WebDriver driver;
     public Properties properties;
-    public static Logger logger = LogManager.getLogger(HomePageTests.class.getName());
+    /**
+     * W tutorialach piszą, żeby tworzyć osobne obiekty klasy Logger w każdej klasie testowej. Wydaje mi sie to sprzeczne z zasadami OOP,
+     * dlatego stworzyłem jeden non-static obiekt klasy Logger, który będą dziedziczyć wszystkie child-klasy - działa.
+     */
+    //public static Logger logger = LogManager.getLogger(TestBase.class.getName());
+    public Logger logger = LogManager.getLogger(this.getClass().getSimpleName());
 
     /**
      * Tworzę metodę, która będzie odpowiedzialna za inicjalizowanie drivera. Wszystkie stworzone później test casy będą korzystały z tej właśnie metody.
@@ -37,7 +42,6 @@ public class TestBase {
         FileInputStream propertiesFileInput = new FileInputStream(System.getProperty("user.home") + "\\IdeaProjects\\project-e2e-automated-tests\\src\\main\\resources\\data.properties");
         properties.load(propertiesFileInput);
         String browser = properties.getProperty("browser");
-        System.out.printf("I'm starting execution of a test case in a browser: %s\n", browser);
         if (browser.equals("chrome")) {
             System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "\\IdeaProjects\\project-e2e-automated-tests\\webdrivers\\chromedriver.exe");
             driver = new ChromeDriver();
@@ -48,7 +52,7 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
-        logger.info("Driver initialized");
+        logger.info("Driver ({}) initialized", browser);
         /**
          * Na koniec zwracam przygotowany obiekt 'driver', który będzie używany przez każdy test case
          */
@@ -67,8 +71,9 @@ public class TestBase {
 }
 
 //FIXME
-// 0. Poprawna struktura frameworka?
-//      https://stackoverflow.com/questions/53115416/structure-of-an-automation-framework-components-in-maven-project
-// 1. Dodać logowanie (log4j)
+// 0. Przemyślana struktura frameworka:
+//    https://stackoverflow.com/questions/53115416/structure-of-an-automation-framework-components-in-maven-project
+// 1. Dodać logowanie (log4j) - done
 // 1.1. Dodać printowanie logów do wszystkich testcase
+// 1.2  log4j2.xml - zastanowić się nad konfiguracją (PatternLayout, fileName)
 

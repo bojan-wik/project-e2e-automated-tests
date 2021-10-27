@@ -56,6 +56,14 @@
     </dependency>
   </dependencies>
   <build>
+    <resources>
+      <!--Tak skonfigurowany tag 'resource' pozwala na zczytywanie plików konfiguracyjnych, które mam w src/main/resources,
+      m.in. konfigurację do log4j-->
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
