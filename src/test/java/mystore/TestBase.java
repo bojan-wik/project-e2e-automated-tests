@@ -76,4 +76,5 @@ public class TestBase {
 // 1. Dodać logowanie (log4j) - done
 // 1.1. Dodać printowanie logów do wszystkich testcase
 // 1.2  log4j2.xml - zastanowić się nad konfiguracją (PatternLayout, fileName)
+// 2. Stworzyć w każdej klasie testowej lokalny obiekt WebDriver - konieczne kiedy będę chciał uruchamiać testy w trybie parallel, żeby nie mieć konfliktów
 

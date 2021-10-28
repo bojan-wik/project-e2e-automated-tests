@@ -1,6 +1,7 @@
 package mystore;
 
 import mystore.pageobjects.HomePage;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -12,6 +13,8 @@ import java.io.IOException;
  */
 public class HomePageTests extends TestBase {
 
+    // na potrzeby parallel
+    //public WebDriver driver;
     HomePage homePage;
 
     /**

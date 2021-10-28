@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Test Suite 1">
-    <test name="Test Folder 1">
+<suite name="Test Suite 1" parallel="none">
+    <test name="home page tests">
          <classes>
              <class name="mystore.HomePageTests"/>
-             <class name="mystore.LoginPageTests"/>
-             <class name="mystore.ContactPageTests"/>
-             <class name="mystore.NewsletterTests"/>
           </classes>
-     </test> <!-- Test -->
-</suite> <!-- Suite -->
+     </test>
+    <test name="login page tests">
+        <classes>
+            <class name="mystore.LoginPageTests"/>
+        </classes>
+    </test>
+    <test name="contact page tests">
+        <classes>
+            <class name="mystore.ContactPageTests"/>
+        </classes>
+    </test>
+    <test name="newsletter tests">
+        <classes>
+            <class name="mystore.NewsletterTests"/>
+        </classes>
+    </test>
+</suite>
