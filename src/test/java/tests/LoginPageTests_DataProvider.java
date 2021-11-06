@@ -1,4 +1,4 @@
-package mystore;
+package tests;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;

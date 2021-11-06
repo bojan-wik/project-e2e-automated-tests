@@ -1,8 +1,8 @@
-package mystore;
+package tests;
 
-import mystore.pageobjects.ForgotPasswordPage;
-import mystore.pageobjects.LoginPage;
-import mystore.pageobjects.HomePage;
+import pageobjects.ForgotPasswordPage;
+import pageobjects.LoginPage;
+import pageobjects.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.*;
 

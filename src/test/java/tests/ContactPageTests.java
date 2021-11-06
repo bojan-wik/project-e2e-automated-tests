@@ -1,13 +1,13 @@
-package mystore;
+package tests;
 
-import mystore.pageobjects.ContactPage;
+import pageobjects.ContactPage;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import mystore.pageobjects.HomePage;
+import pageobjects.HomePage;
 
 import java.io.IOException;
 

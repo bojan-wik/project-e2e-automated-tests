@@ -3,22 +3,22 @@
 <suite name="Test Suite 1" parallel="none">
     <test name="home page tests">
          <classes>
-             <class name="mystore.HomePageTests"/>
+             <class name="tests.HomePageTests"/>
           </classes>
      </test>
     <test name="login page tests">
         <classes>
-            <class name="mystore.LoginPageTests"/>
+            <class name="tests.LoginPageTests"/>
         </classes>
     </test>
     <test name="contact page tests">
         <classes>
-            <class name="mystore.ContactPageTests"/>
+            <class name="tests.ContactPageTests"/>
         </classes>
     </test>
     <test name="newsletter tests">
         <classes>
-            <class name="mystore.NewsletterTests"/>
+            <class name="tests.NewsletterTests"/>
         </classes>
     </test>
 </suite>

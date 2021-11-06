@@ -15,8 +15,8 @@ Goal of the project is to create a fully functional testing framework and learn 
 ### Framework structure
 
 ```
-src>main>java>mystore>pageobjects>***Page.java -> web objects from store application
-src>test>java>mystore>***Tests.java -> tests for store application
+src>main>java>tests>pageobjects>***Page.java -> web objects from store application
+src>test>java>tests>***Tests.java -> tests for store application
 ```
 
 ## Author

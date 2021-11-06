@@ -1,5 +1,3 @@
-package mystore;
-
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 

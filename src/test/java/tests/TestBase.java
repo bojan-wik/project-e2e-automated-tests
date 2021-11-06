@@ -1,4 +1,4 @@
-package mystore;
+package tests;
 
 import org.apache.commons.lang3.RandomUtils;
 import org.apache.logging.log4j.LogManager;
@@ -69,19 +69,4 @@ public class TestBase {
         return generatedInt;
     }
 }
-
-//FIXME
-// 0. Przemyślana struktura frameworka:
-//    https://stackoverflow.com/questions/53115416/structure-of-an-automation-framework-components-in-maven-project
-// ---
-// 1. Dodać logowanie (log4j) - done
-// 1.1. Dodać printowanie logów do wszystkich testcase
-// 1.2  log4j2.xml - zastanowić się nad konfiguracją (PatternLayout, fileName)
-// ---
-// 2. TestNG Listeners  (w Medcinie screenshoty robione są zarówno przy testFailure, jak i przy testSuccess)
-// 2.1. dodać klasę Listeners (także do testng.xml)
-// 2.2. w TestBase - dodać metodę odpowiedzialną za robienie screenshotów
-// ---
-// 3. Parallel execution (https://techbeacon.com/app-dev-testing/how-make-your-test-automation-run-parallel)
-// 3.1 Stworzyć w każdej klasie testowej lokalny obiekt WebDriver - konieczne kiedy będę chciał uruchamiać testy w trybie parallel, żeby nie mieć konfliktów
 

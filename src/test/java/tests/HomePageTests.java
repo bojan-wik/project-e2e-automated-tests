@@ -1,7 +1,6 @@
-package mystore;
+package tests;
 
-import mystore.pageobjects.HomePage;
-import org.openqa.selenium.WebDriver;
+import pageobjects.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
