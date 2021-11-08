@@ -29,6 +29,8 @@ public class BasePage {
      */
     private By contactButtonLocator = By.id("contact-link");
     private By loginButtonLocator = By.xpath("//a[@class='login']");
+    private By womenLinkLocator = By.partialLinkText("Women");
+    private By tshirtsLinkLocator = By.xpath("//a[@title='T-shirts']");
     private By newsletterEmailFieldLocator = By.id("newsletter-input");
     private By newsletterSubmitButtonLocator = By.xpath("//button[@name='submitNewsletter']");
     private By alertFailLocator = By.className("alert-danger");
@@ -38,6 +40,8 @@ public class BasePage {
     public WebElement getLoginButton() {
         return driver.findElement(loginButtonLocator);
     }
+    public WebElement getWomenLink() { return driver.findElement(womenLinkLocator); }
+    public WebElement getTshirtsLink() { return driver.findElement(tshirtsLinkLocator); }
     /**
      * Poprzednia metoda (getLoginButton()) zwracała tylko WebElement login buttona. Potem w testcase wykonywałem na tym webelemencie click
      * i zawsze po tym następowało przejście do strony logowania i musiałem tworzyć obiekt klasy LoginPageObjects.
