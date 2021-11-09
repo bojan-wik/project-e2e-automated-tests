@@ -37,13 +37,7 @@ public class SearchProduct extends TestBase {
     }
 
     @Test
-    public void testCase1() {
-        System.out.println("test case 1");
-        //basePage.getWomenLink().click();
-        actions.moveToElement(basePage.getWomenLink()).click().build().perform();
-        //actions.moveToElement(basePage.getWomenLink()).moveToElement(basePage.getTshirtsLink()).click().build().perform();
-        //actions.moveToElement(basePage.getWomenLink()).moveToElement(basePage.getTshirtsLink()).click().perform();
-    }
+    public void testCase1() {}
 
     @AfterTest
     public void tearDownTests() {
