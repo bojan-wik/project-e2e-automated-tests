@@ -15,8 +15,10 @@ Goal of the project is to create a fully functional testing framework and learn 
 ### Framework structure
 
 ```
-src>main>java>tests>pageobjects>***Page.java -> web objects from store application
-src>test>java>tests>***Tests.java -> tests for store application
+src>main>java>pageobjects>***Page.java -> web objects from store application (per page)
+src>main>resources> -> non-code property/config files for the framework
+src>test>java>tests>***Tests.java -> tests for store application (per page or per feature)
+src>test>java>tests>alpha> -> drafts of tests (in the form of scripts)
 ```
 
 ## Author
