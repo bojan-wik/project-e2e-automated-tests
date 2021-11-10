@@ -17,8 +17,8 @@ import java.util.concurrent.TimeUnit;
  * 2. Move your cursor over Women's link. - done
  * 3. Click on sub menu 'T-shirts' - done
  * 4. Get Name/Text of the first product displayed on the page. - done
- * 5. Now enter the same product name in the search bar present on top of page and click search button.
- * 6. Validate that same product is displayed on searched page with same details which were displayed on T-Shirt's page.
+ * 5. Now enter the same product name in the search bar present on top of page and click search button. - done
+ * 6. Validate that same product is displayed on searched page with same details which were displayed on T-Shirt's page. - done
  */
 
 public class SearchProduct {
@@ -61,6 +61,11 @@ public class SearchProduct {
 
         // możliwa dodatkowa walidacja:
         // a) navigation: home -> search ?
+        By searchNavIndicatorLocator = By.xpath("//span[@class='navigation_page']");
+        WebElement searchNavIndicator = driver.findElement(searchNavIndicatorLocator);
+
+        Assert.assertEquals(searchNavIndicator.getText(), "Search");
+
         // b) title: SEARCH  "FADED SHORT SLEEVE T-SHIRTS" ?
 
         //driver.quit();
