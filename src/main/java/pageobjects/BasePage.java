@@ -34,8 +34,8 @@ public class BasePage {
     private By womenLinkLocator = By.xpath("//a[@title='Women']");
     private By tshirtsLinkLocator = By.xpath("//a[@title='T-shirts']");
     //private By productsListLocatorHomepage = By.xpath();
-    private By productsListLocatorNotHomepage = By.xpath("//*[@id='center_column']/ul");
-    private By firstProductLocatorNotHomepage = By.xpath("//h5[@itemprop='name'][1]");
+    private By productsListLocator = By.xpath("//*[@id='center_column']/ul");
+    private By firstProductLocator = By.xpath("//h5[@itemprop='name'][1]");
     private By newsletterEmailFieldLocator = By.id("newsletter-input");
     private By newsletterSubmitButtonLocator = By.xpath("//button[@name='submitNewsletter']");
     private By alertFailLocator = By.className("alert-danger");
@@ -49,8 +49,8 @@ public class BasePage {
     public WebElement getSearchButton() { return driver.findElement(searchButtonLocator); }
     public WebElement getWomenLink() { return driver.findElement(womenLinkLocator); }
     public WebElement getTshirtsLink() { return driver.findElement(tshirtsLinkLocator); }
-    public WebElement getProductsListNotHomepage() { return driver.findElement(productsListLocatorNotHomepage); }
-    public WebElement getFirstProductNotHomepage() { return driver.findElement(firstProductLocatorNotHomepage); }
+    public WebElement getProductsList() { return driver.findElement(productsListLocator); }
+    public WebElement getFirstProduct() { return driver.findElement(firstProductLocator); }
     /**
      * Poprzednia metoda (getLoginButton()) zwracała tylko WebElement login buttona. Potem w testcase wykonywałem na tym webelemencie click
      * i zawsze po tym następowało przejście do strony logowania i musiałem tworzyć obiekt klasy LoginPageObjects.
