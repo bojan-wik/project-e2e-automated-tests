@@ -1,8 +1,9 @@
-package tests;
+package tests.alpha;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
+import tests.TestBase;
 
 import java.io.IOException;
 

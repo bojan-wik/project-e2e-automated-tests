@@ -18,9 +18,10 @@ public class ContactPageTests extends TestBase {
 
     @BeforeTest
     public void setUpTests() throws IOException {
-        System.out.println("set up tests");
+        logger.info("Setting up test-class: {}", this.getClass().getSimpleName());
         driver = initializeDriver();
         driver.get(properties.getProperty("url"));
+        logger.info("Home page accessed");
         homePage = new HomePage(driver);
         contactPage = new ContactPage(driver);
     }
@@ -31,6 +32,7 @@ public class ContactPageTests extends TestBase {
         String expectedContactNavigationText = "contact";
         String actualContactNavigationText = contactPage.getContactNavigation().getText();
         Assert.assertTrue(actualContactNavigationText.toLowerCase().contains(expectedContactNavigationText));
+        logger.info("Contact page accessed");
     }
 
     @Test
@@ -45,11 +47,12 @@ public class ContactPageTests extends TestBase {
         Assert.assertTrue(contactPage.getMessageSentAlert().isDisplayed());
         String actualMessageSentAlert = contactPage.getMessageSentAlert().getText();
         Assert.assertTrue(actualMessageSentAlert.toLowerCase().contains("successfully sent"));
+        logger.info("Valid message without file sent. Correct message is displayed");
     }
 
     @AfterTest
     public void tearDownTests() {
-        System.out.println("tear down tests");
+        logger.info("Tearing down test-class: {}", this.getClass().getSimpleName());
         if (driver != null) {
             driver.quit();
         }

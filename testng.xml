@@ -23,7 +23,7 @@
     </test>
     <test name="search product tests">
         <classes>
-            <class name="tests.SearchProduct"/>
+            <class name="tests.SearchProductTests"/>
         </classes>
     </test>
 </suite>

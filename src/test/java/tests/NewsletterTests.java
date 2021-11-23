@@ -14,9 +14,10 @@ public class NewsletterTests extends TestBase {
 
     @BeforeTest
     public void setUpTests() throws IOException {
-        System.out.println("set up tests");
+        logger.info("Setting up test-class: {}", this.getClass().getSimpleName());
         driver = initializeDriver();
         driver.get(properties.getProperty("url"));
+        logger.info("Home page accessed");
         basePage = new BasePage(driver);
     }
 
@@ -28,6 +29,7 @@ public class NewsletterTests extends TestBase {
         String expectedValidNewEmailAlert = "successfully subscribed";
         String actualValidNewEmailAlert = basePage.getAlertSuccess().getText();
         Assert.assertTrue(actualValidNewEmailAlert.toLowerCase().contains(expectedValidNewEmailAlert));
+        logger.info("Valid email address sent. Correct message is displayed");
     }
 
     @Test
@@ -43,11 +45,12 @@ public class NewsletterTests extends TestBase {
          * że nie ma sensu sprawdzać, czy cały komunikat jest dokładnie taki sam - dzięki temu test jest bardziej generyczny i odporny na drobne zmiany.
          */
         Assert.assertTrue(actualInvalidEmailAlert.toLowerCase().contains(expectedInvalidEmailAlert));
+        logger.info("Invalid email address sent. Correct message is displayed");
     }
 
     @AfterTest
     public void tearDownTests() {
-        System.out.println("tear down tests");
+        logger.info("Tearing down test-class: {}", this.getClass().getSimpleName());
         if (driver != null) {
             driver.quit();
         }
