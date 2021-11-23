@@ -15,11 +15,9 @@ public class ForgotPasswordPage extends BasePage {
     private By retrievePasswordButtonLocator = By.xpath("//form[@id='form_forgotpassword']/fieldset/p/button");
 
     public WebElement getForgotPasswordHeading() { return driver.findElement(forgotPasswordHeadingLocator); }
-
     public WebElement getEmailField() {
         return driver.findElement(emailFieldLocator);
     }
-
     public WebElement getRetrievePasswordButton() {
         return driver.findElement(retrievePasswordButtonLocator);
     }

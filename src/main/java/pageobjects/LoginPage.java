@@ -18,11 +18,9 @@ public class LoginPage extends BasePage {
     public WebElement getEmailField() {
         return driver.findElement(emailFieldLocator);
     }
-
     public WebElement getPasswordField() {
         return driver.findElement(passwordFieldLocator);
     }
-
     /**
      * Robię ten sam zabieg, co w przypadku BasePage.clickLoginButton()
      */
@@ -30,7 +28,6 @@ public class LoginPage extends BasePage {
         driver.findElement(forgotPasswordLinkLocator).click();
         return new ForgotPasswordPage(driver);
     }
-
     public WebElement getSigninButton() {
         return driver.findElement(signinButtonLocator);
     }
