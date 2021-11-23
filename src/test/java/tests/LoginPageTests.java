@@ -25,8 +25,8 @@ public class LoginPageTests extends TestBase {
 
     @Test(priority = 1)
     public void login() {
-        LoginPage loginPage = homePage.clickLoginButton();
-        //homePage.getLoginButton().click();
+        //LoginPage loginPage = homePage.clickLoginButton();
+        homePage.getLoginButton().click();
         Assert.assertTrue(driver.getTitle().toLowerCase().contains("login"));
         logger.info("Login page accessed");
         loginPage.getEmailField().sendKeys(properties.getProperty("email"));

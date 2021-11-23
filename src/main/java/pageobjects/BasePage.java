@@ -42,17 +42,18 @@ public class BasePage {
     private final By alertSuccessLocator = By.className("alert-success");
 
     public WebElement getContactButton() { return driver.findElement(contactButtonLocator); }
-    //public WebElement getLoginButton() { return driver.findElement(loginButtonLocator); }
+    public WebElement getLoginButton() { return driver.findElement(loginButtonLocator); }
     /**
      * Poprzednia metoda (getLoginButton()) zwracała tylko WebElement login buttona. Potem w testcase wykonywałem na tym webelemencie click
-     * i zawsze po tym następowało przejście do strony logowania i musiałem tworzyć obiekt klasy LoginPageObjects.
+     * i zawsze po tym następowało przejście do strony logowania i musiałem tworzyć obiekt klasy LoginPage.
      * Teraz ten cały proces mam zawarty w metodzie clickLoginButton()
+     * UPDATE: to chyba nie do końca właściwy proces, bo zdaża się, że obiekt klasy LoginPage muszę w danej test-klasie stworzyć globalnie
      */
-    public LoginPage clickLoginButton() {
+    /*public LoginPage clickLoginButton() {
         driver.findElement(loginButtonLocator).click();
         LoginPage loginPage = new LoginPage(driver);
         return loginPage;
-    }
+    }*/
     public WebElement getSearchBox() { return driver.findElement(searchBoxLocator); }
     public WebElement getSearchButton() { return driver.findElement(searchButtonLocator); }
     public WebElement getWomenLink() { return driver.findElement(womenLinkLocator); }

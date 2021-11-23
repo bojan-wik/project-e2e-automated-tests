@@ -60,13 +60,11 @@ public class TestBase {
     }
 
     public String generateRandomString() {
-        String generatedString = RandomStringUtils.randomAlphabetic(8);
-        return generatedString;
+        return RandomStringUtils.randomAlphabetic(8);
     }
 
     public int generateRandomInt() {
-        int generatedInt = RandomUtils.nextInt(1, 10000);
-        return generatedInt;
+        return RandomUtils.nextInt(1, 10000);
     }
 }
 

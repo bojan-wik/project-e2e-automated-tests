@@ -33,7 +33,8 @@ public class UserRegistration {
         driver.get("http://automationpractice.com/index.php");
         // 2. Click on sign in link.
         BasePage basePage = new BasePage(driver);
-        LoginPage loginPage = basePage.clickLoginButton();
+        basePage.getLoginButton().click();
+        LoginPage loginPage = new LoginPage(driver);
         // 3. Enter your email address in 'Create and account' section.
         loginPage.getCreateAccountEmailField().sendKeys("test");
 
