@@ -27,19 +27,19 @@ public class BasePage {
      * a potem obudowuję je w metody, które zwracają mi już całe webelementy i są zadeklarowane jako public.
      * Tutaj chodzi np. o to, żeby ograniczyć dostęp do locatorów i nie pozwolić np. na pisanie 'driver.findElement(contactButtonLocator)' w testkejsach, bo to zła praktyka.
      */
-    private By contactButtonLocator = By.id("contact-link");
-    private By loginButtonLocator = By.xpath("//a[@class='login']");
-    private By searchBoxLocator = By.id("search_query_top");
-    private By searchButtonLocator = By.xpath("//button[@name='submit_search']");
-    private By womenLinkLocator = By.xpath("//a[@title='Women']");
-    private By tshirtsLinkLocator = By.xpath("//a[@title='T-shirts']");
+    private final By contactButtonLocator = By.id("contact-link");
+    private final By loginButtonLocator = By.xpath("//a[@class='login']");
+    private final By searchBoxLocator = By.id("search_query_top");
+    private final By searchButtonLocator = By.xpath("//button[@name='submit_search']");
+    private final By womenLinkLocator = By.xpath("//a[@title='Women']");
+    private final By tshirtsLinkLocator = By.xpath("//a[@title='T-shirts']");
     //private By productsListLocatorHomepage = By.xpath();
-    private By productsListLocator = By.xpath("//*[@id='center_column']/ul");
-    private By firstProductLocator = By.xpath("//h5[@itemprop='name'][1]");
-    private By newsletterEmailFieldLocator = By.id("newsletter-input");
-    private By newsletterSubmitButtonLocator = By.xpath("//button[@name='submitNewsletter']");
-    private By alertFailLocator = By.className("alert-danger");
-    private By alertSuccessLocator = By.className("alert-success");
+    private final By productsListLocator = By.xpath("//*[@id='center_column']/ul");
+    private final By firstProductLocator = By.xpath("//h5[@itemprop='name'][1]");
+    private final By newsletterEmailFieldLocator = By.id("newsletter-input");
+    private final By newsletterSubmitButtonLocator = By.xpath("//button[@name='submitNewsletter']");
+    private final By alertFailLocator = By.className("alert-danger");
+    private final By alertSuccessLocator = By.className("alert-success");
 
     public WebElement getContactButton() { return driver.findElement(contactButtonLocator); }
     public WebElement getLoginButton() {

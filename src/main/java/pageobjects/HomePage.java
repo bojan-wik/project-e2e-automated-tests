@@ -19,10 +19,10 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
-    private By sliderLocator = By.id("slider_row");
-    private By popularLinkLocator = By.xpath("//a[@href='#homefeatured']");
-    private By bestsellersLinkLocator = By.xpath("//a[@href='#blockbestsellers']");
-    private By pageTitleLocator = By.xpath("//div[@id='editorial_block_center']/h1");
+    private final By sliderLocator = By.id("slider_row");
+    private final By popularLinkLocator = By.xpath("//a[@href='#homefeatured']");
+    private final By bestsellersLinkLocator = By.xpath("//a[@href='#blockbestsellers']");
+    private final By pageTitleLocator = By.xpath("//div[@id='editorial_block_center']/h1");
 
     public WebElement getSlider() { return driver.findElement(sliderLocator); }
     public WebElement getPopularLink() { return driver.findElement(popularLinkLocator); }
