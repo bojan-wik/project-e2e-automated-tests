@@ -26,16 +26,14 @@ public class ContactPageTests extends TestBase {
         contactPage = new ContactPage(driver);
     }
 
-    @Test
+    @Test (priority = 0)
     public void openContactPage() {
         homePage.getContactButton().click();
-        String expectedContactNavigationText = "contact";
-        String actualContactNavigationText = contactPage.getContactNavigation().getText();
-        Assert.assertTrue(actualContactNavigationText.toLowerCase().contains(expectedContactNavigationText));
+        Assert.assertTrue(driver.getTitle().toLowerCase().contains("contact"));
         logger.info("Contact page accessed");
     }
 
-    @Test
+    @Test (priority = 1)
     public void sendValidMessageWithoutFile() {
         Actions actions = new Actions(driver);
         actions.moveToElement(contactPage.getSubjectHeadingDropdown()).click()

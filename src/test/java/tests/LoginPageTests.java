@@ -27,6 +27,7 @@ public class LoginPageTests extends TestBase {
     public void login() {
         //LoginPage loginPage = homePage.clickLoginButton();
         homePage.getLoginButton().click();
+        Assert.assertTrue(driver.getTitle().toLowerCase().contains("login"));
         logger.info("Login page accessed");
         loginPage.getEmailField().sendKeys(properties.getProperty("email"));
         loginPage.getPasswordField().sendKeys(properties.getProperty("password"));
@@ -37,8 +38,7 @@ public class LoginPageTests extends TestBase {
     @Test(priority = 2)
     public void forgotPassword() {
         ForgotPasswordPage forgotPasswordPage = loginPage.clickForgotPasswordLink();
-        Assert.assertTrue(forgotPasswordPage.getForgotPasswordHeading().getText().toLowerCase()
-                .contains("forgot your password"));
+        Assert.assertTrue(driver.getTitle().toLowerCase().contains("forgot your password"));
         logger.info("Forgot password page accessed");
         forgotPasswordPage.getEmailField().sendKeys(properties.getProperty("email"));
         forgotPasswordPage.getRetrievePasswordButton().click();
