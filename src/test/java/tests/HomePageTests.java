@@ -10,23 +10,19 @@ import java.io.IOException;
  * Pomiędzy klasami 'TestBase' i 'HomePageTests' tworzę relację parent-child. Dzięki temu klasa 'HomePageTests' ma dostęp do wszystkich
  * metod klasy 'TestBase'
  */
-public class HomePageTests extends TestBase {
+public class HomePage extends TestBase {
 
     // na potrzeby parallel
     //public WebDriver driver;
-    HomePage homePage;
+    pageobjects.HomePage homePage;
 
-    /**
-     * @BeforeTest : It will call Only once, before Test method.
-     * @BeforeMethod It will call Every time before Test Method.
-     */
     @BeforeTest
     public void setUpTests() throws IOException {
-        logger.info("set up {}", this.getClass().getSimpleName());
+        logger.info("Setting up test-class: {}", this.getClass().getSimpleName());
         driver = initializeDriver();
         driver.get(properties.getProperty("url"));
         logger.info("HomePage accessed");
-        homePage = new HomePage(driver);
+        homePage = new pageobjects.HomePage(driver);
     }
 
     @Test
@@ -65,7 +61,7 @@ public class HomePageTests extends TestBase {
 
     @AfterTest
     public void tearDownTests() {
-        logger.info("tear down {}", this.getClass().getSimpleName());
+        logger.info("Tearing down test-class: {}", this.getClass().getSimpleName());
         if (driver != null) {
             driver.quit();
         }
