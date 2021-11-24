@@ -59,11 +59,11 @@ public class TestBase {
         return driver;
     }
 
-    public String generateRandomString() {
+    public static String generateRandomString() {
         return RandomStringUtils.randomAlphabetic(8);
     }
 
-    public int generateRandomInt() {
+    public static int generateRandomInt() {
         return RandomUtils.nextInt(1, 10000);
     }
 }
