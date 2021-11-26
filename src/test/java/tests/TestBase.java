@@ -10,6 +10,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -62,9 +63,15 @@ public class TestBase {
     public static String generateRandomString() {
         return RandomStringUtils.randomAlphabetic(8);
     }
-
     public static int generateRandomInt() {
         return RandomUtils.nextInt(1, 10000);
+    }
+
+    public static String getSampleData(String key) {
+        HashMap<String, String> sampleData = new HashMap<String, String>();
+        sampleData.put("firstName", "Jan");
+        sampleData.put("lastName", "Kowalski");
+        return sampleData.get(key);
     }
 }
 
