@@ -56,8 +56,13 @@ public class UserRegistration extends TestBase {
         logger.info("User registration page accessed");
         // 5. Enter your Personal Information, Address and Contact info.
         //Assert.assertTrue(userRegistrationPage.getGenderMisterRadioButton().isSelected());
-        userRegistrationPage.getGenderMisterRadioButton().click();
-        Assert.assertTrue(userRegistrationPage.getGenderMisterRadioButton().isSelected());
+        //System.out.println(userRegistrationPage.getGenderMisterRadioButton().isSelected());
+        userRegistrationPage.getTitleMrRadioButton().click();
+        //System.out.println(userRegistrationPage.getGenderMisterRadioButton().isSelected());
+        Assert.assertTrue(userRegistrationPage.getTitleMrRadioButton().isSelected());
+        logger.info("Title selected");
+        userRegistrationPage.getFirstNameField().sendKeys(getSampleData("firstName"));
+        userRegistrationPage.getLastNameField().sendKeys(getSampleData("lastName"));
 
         // 6. Click on Register button.
         //userRegistrationPage.getRegisterButton().click();

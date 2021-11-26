@@ -10,11 +10,15 @@ public class UserRegistrationPage extends BasePage {
         super(driver);
     }
 
-    private final By genderMisterRadioButtonLocator = By.id("uniform-id_gender1");
-    private final By genderMissesRadioButtonLocator = By.id("uniform-id_gender2");
+    private final By titleMrRadioButtonLocator = By.id("id_gender1");
+    //private final By titleMrsRadioButtonLocator = By.id("id_gender2");
+    private final By firstNameFieldLocator = By.id("customer_firstname");
+    private final By lastNameFieldLocator = By.id("customer_lastname");
     private final By registerButtonLocator = By.id("submitAccount");
 
-    public WebElement getGenderMisterRadioButton() {return driver.findElement(genderMisterRadioButtonLocator); }
-    public WebElement getGenderMissesRadioButton() {return driver.findElement(genderMissesRadioButtonLocator); }
+    public WebElement getTitleMrRadioButton() {return driver.findElement(titleMrRadioButtonLocator); }
+    //public WebElement getTitleMrsRadioButton() {return driver.findElement(titleMrsRadioButtonLocator); }
+    public WebElement getFirstNameField() {return driver.findElement(firstNameFieldLocator); }
+    public WebElement getLastNameField() {return driver.findElement(lastNameFieldLocator); }
     public WebElement getRegisterButton() {return driver.findElement(registerButtonLocator); }
 }
