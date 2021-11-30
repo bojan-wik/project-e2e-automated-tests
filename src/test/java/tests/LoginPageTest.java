@@ -8,7 +8,7 @@ import org.testng.annotations.*;
 
 import java.io.IOException;
 
-public class LoginPageTests extends TestBase {
+public class LoginPageTest extends TestBase {
 
     HomePage homePage;
     LoginPage loginPage;

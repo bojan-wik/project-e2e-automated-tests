@@ -10,7 +10,7 @@ import java.io.IOException;
  * Pomiędzy klasami 'TestBase' i 'HomePageTests' tworzę relację parent-child. Dzięki temu klasa 'HomePageTests' ma dostęp do wszystkich
  * metod klasy 'TestBase'
  */
-public class HomePageTests extends TestBase {
+public class HomePageTest extends TestBase {
 
     // na potrzeby parallel
     //public WebDriver driver;

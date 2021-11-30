@@ -11,7 +11,7 @@ import pageobjects.HomePage;
 
 import java.io.IOException;
 
-public class ContactPageTests extends TestBase {
+public class ContactPageTest extends TestBase {
 
     HomePage homePage;
     ContactPage contactPage;

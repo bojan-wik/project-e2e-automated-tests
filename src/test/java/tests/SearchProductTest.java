@@ -21,7 +21,7 @@ import java.io.IOException;
  * 6. Validate that same product is displayed on searched page with same details which were displayed on T-Shirt's page.
  */
 
-public class SearchProductTests extends TestBase {
+public class SearchProductTest extends TestBase {
 
     BasePage basePage;
     Actions actions;
